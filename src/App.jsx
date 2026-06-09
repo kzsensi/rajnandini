@@ -13,8 +13,6 @@ import {
 import Industries from './pages/Industries';
 import ImportExport from './pages/ImportExport';
 import Infrastructure from './pages/Infrastructure';
-import Gallery from './pages/Gallery';
-import Certifications from './pages/Certifications';
 
 // --- COMPREHENSIVE B2B DATA ---
 
@@ -33,8 +31,6 @@ const navigation = [
     { id: 'industries', label: 'Industries' },
     { id: 'import-export', label: 'Import & Export' },
     { id: 'infrastructure', label: 'Infrastructure' },
-    { id: 'gallery', label: 'Gallery' },
-    { id: 'certifications', label: 'Certifications' },
     { id: 'contact', label: 'Contact Us' },
 ];
 
@@ -1394,7 +1390,7 @@ const Navbar = ({ currentPage, setPage }) => {
                                     Operations <ChevronDown size={14} className="ml-1" />
                                 </button>
                                 <div className="absolute top-full right-0 mt-2 w-56 bg-white rounded-md shadow-xl border border-stone-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform translate-y-2 group-hover:translate-y-0 p-2">
-                                    {navigation.slice(5, 9).map((item) => (
+                                    {navigation.slice(5, 7).map((item) => (
                                         <button 
                                             key={item.id} 
                                             onClick={() => handleNavClick(item.id)}
@@ -1486,7 +1482,7 @@ const Footer = ({ setPage }) => {
                     <div>
                         <p className="text-slate-100 font-bold mb-6 uppercase tracking-widest text-sm border-b border-slate-800 pb-3">Corporate Links</p>
                         <ul className="space-y-4 text-slate-500 font-medium text-sm">
-                            {['about', 'founder', 'certifications', 'contact'].map((id) => (
+                            {['about', 'founder', 'contact'].map((id) => (
                                 <li key={id}>
                                     <button onClick={() => { setPage(id); window.scrollTo(0,0); }} className="hover:text-white transition-colors uppercase tracking-wider">
                                         {id.replace('-', ' ')}
@@ -1788,8 +1784,6 @@ export default function App() {
             case 'industries': return <Industries />;
             case 'import-export': return <ImportExport />;
             case 'infrastructure': return <Infrastructure />;
-            case 'gallery': return <Gallery />;
-            case 'certifications': return <Certifications />;
             case 'contact': return <Contact />;
             default: return <Home setPage={setCurrentPage} />;
         }
