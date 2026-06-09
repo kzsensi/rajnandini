@@ -10,6 +10,12 @@ import {
     Users, Map, Ship, Award, Layers
 } from 'lucide-react';
 
+import Industries from './pages/Industries';
+import ImportExport from './pages/ImportExport';
+import Infrastructure from './pages/Infrastructure';
+import Gallery from './pages/Gallery';
+import Certifications from './pages/Certifications';
+
 // --- COMPREHENSIVE B2B DATA ---
 
 export const COMPANY_NAME = "Raj Nandini Iron and Minerals";
@@ -1280,6 +1286,7 @@ const Navbar = ({ currentPage, setPage }) => {
     }, []);
 
     const handleNavClick = (id) => {
+        window.scrollTo(0, 0);
         setPage(id);
         setMobileMenuOpen(false);
     };
@@ -1333,7 +1340,7 @@ const Navbar = ({ currentPage, setPage }) => {
 
                     {/* Mobile Menu Toggle */}
                     <button 
-                        className={`xl:hidden p-2 hover:text-[#B58D54] transition-colors focus:outline-none [-webkit-tap-highlight-color:transparent] ${isScrolled || mobileMenuOpen ? 'text-stone-800' : 'text-white'}`}
+                        className={`xl:hidden p-2 hover:text-[#B58D54] transition-colors focus:outline-none [-webkit-tap-highlight-color:transparent] ${isScrolled || mobileMenuOpen || currentPage !== 'home' ? 'text-stone-800' : 'text-white'}`}
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     >
                         {mobileMenuOpen ? <X size={32} strokeWidth={1.5} /> : <Menu size={32} strokeWidth={1.5} />}
