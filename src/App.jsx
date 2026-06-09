@@ -1773,7 +1773,30 @@ const GlobalNetwork = ({ setPage }) => {
 // --- MAIN APP ---
 
 export default function App() {
-    const [currentPage, setCurrentPage] = useState('home');
+    // Determine the initial page from the browser URL path on load
+    const [currentPage, setCurrentPage] = useState(() => {
+        const path = window.location.pathname.replace(/^\//, '');
+        return navigation.some(n => n.id === path) ? path : 'home';
+    });
+
+    // Listen for browser back/forward navigation
+    useEffect(() => {
+        const handlePopState = () => {
+            const path = window.location.pathname.replace(/^\//, '');
+            const validPage = navigation.some(n => n.id === path) ? path : 'home';
+            setCurrentPage(validPage);
+        };
+        window.addEventListener('popstate', handlePopState);
+        return () => window.removeEventListener('popstate', handlePopState);
+    }, []);
+
+    // Sync the state change back to the browser URL
+    useEffect(() => {
+        const path = currentPage === 'home' ? '/' : `/${currentPage}`;
+        if (window.location.pathname !== path) {
+            window.history.pushState(null, '', path);
+        }
+    }, [currentPage]);
 
     const renderPage = () => {
         switch (currentPage) {
