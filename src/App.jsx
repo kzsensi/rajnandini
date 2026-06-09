@@ -1461,7 +1461,7 @@ const Navbar = ({ currentPage, setPage }) => {
 
 const Footer = ({ setPage }) => {
     return (
-        <footer className="fixed bottom-0 left-0 w-full h-[70vh] z-0 bg-slate-950 text-white flex flex-col justify-between pt-16 md:pt-24 pb-8 px-6 md:px-12 lg:px-20 overflow-hidden">
+        <footer className="relative md:fixed bottom-0 left-0 w-full h-auto md:h-[70vh] z-0 bg-slate-950 text-white flex flex-col justify-between pt-16 md:pt-24 pb-8 px-6 md:px-12 lg:px-20 overflow-hidden">
             {/* Footer Top Links */}
             <div className="flex flex-col md:flex-row justify-between items-start w-full max-w-7xl mx-auto gap-12 md:gap-0">
                 <div className="max-w-sm">
@@ -1531,11 +1531,11 @@ const Footer = ({ setPage }) => {
             </div>
 
             {/* BIG BOLD TEXT REVEAL */}
-            <div className="w-full flex flex-col items-center justify-end mt-auto pointer-events-none pb-4 md:pb-0">
+            <div className="w-full flex flex-col items-center justify-end mt-12 md:mt-auto pointer-events-none pb-4 md:pb-0">
                 <img 
                     src="/assets/rajnandini_text_logo.png" 
                     alt="Raj &amp; Nandini" 
-                    className="w-[90%] md:w-full max-w-5xl h-auto min-h-[40px] md:min-h-[60px] object-contain select-none pointer-events-auto opacity-80 hover:opacity-100 transition-opacity"
+                    className="w-[80%] md:w-[60%] max-w-3xl h-auto object-contain select-none pointer-events-auto opacity-80 hover:opacity-100 transition-opacity"
                     onError={(e) => {
                         e.target.style.display = 'none';
                         if (e.target.nextSibling) e.target.nextSibling.style.display = 'block';
@@ -1825,7 +1825,7 @@ export default function App() {
         <div className="relative bg-slate-950 font-sans text-slate-900 selection:bg-stone-300 selection:text-slate-900">
             <Navbar currentPage={currentPage} setPage={setCurrentPage} />
             
-            <main className="relative z-10 flex flex-col bg-stone-50 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-b-[2rem] sm:rounded-b-[3rem] mb-[70vh] min-h-screen">
+            <main className="relative z-10 flex flex-col bg-stone-50 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-b-[2rem] sm:rounded-b-[3rem] mb-0 md:mb-[70vh] min-h-screen">
                 <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
                     <motion.div
                         key={currentPage}
