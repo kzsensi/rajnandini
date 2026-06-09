@@ -1,5 +1,6 @@
 import { Agentation } from "agentation";
 import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion';
 import { 
     Menu, X, ChevronRight, ChevronLeft, Globe, TrendingUp, ShieldCheck, 
@@ -1078,64 +1079,77 @@ const Products = ({ setPage }) => {
                     </motion.div>
                 </AnimatePresence>
 
-                {/* PRODUCT DETAILS MODAL */}
-                <AnimatePresence>
-                    {selectedProduct && (
-                        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
-                            {/* Backdrop */}
-                            <motion.div 
-                                initial={{ opacity: 0 }} 
-                                animate={{ opacity: 1 }} 
-                                exit={{ opacity: 0 }} 
-                                onClick={() => setSelectedProduct(null)}
-                                className="absolute inset-0 bg-slate-900/70 backdrop-blur-sm"
-                            ></motion.div>
-                            
-                            {/* Modal Content Box */}
-                            <motion.div 
-                                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                                animate={{ opacity: 1, scale: 1, y: 0 }}
-                                exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                                className="relative bg-white rounded-3xl w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-2xl z-10 flex flex-col hide-scrollbar"
-                            >
-                                <button 
-                                    onClick={() => setSelectedProduct(null)} 
-                                    className="absolute top-4 right-4 w-10 h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-slate-900 hover:bg-white transition-colors z-20 shadow-sm"
+                {/* PRODUCT DETAILS MODAL (Portal to body to avoid stacking context issues) */}
+                {createPortal(
+                    <AnimatePresence>
+                        {selectedProduct && (
+                            <div className="fixed inset-0 z-[999] flex items-center justify-center p-4 sm:p-6">
+                                {/* Backdrop */}
+                                <motion.div 
+                                    initial={{ opacity: 0 }} 
+                                    animate={{ opacity: 1 }} 
+                                    exit={{ opacity: 0 }} 
+                                    onClick={() => setSelectedProduct(null)}
+                                    className="absolute inset-0 bg-slate-900/70 backdrop-blur-sm"
+                                ></motion.div>
+                                
+                                {/* Modal Content Box */}
+                                <motion.div 
+                                    initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                                    exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                                    className="relative bg-white rounded-3xl w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-2xl z-10 flex flex-col hide-scrollbar"
                                 >
-                                    <X size={20} />
-                                </button>
-                                
-                                {/* Modal Hero Image */}
-                                <div className="h-64 sm:h-80 w-full relative shrink-0">
-                                    <img src={selectedProduct.displayImage} alt={selectedProduct.name} className="w-full h-full object-cover" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
-                                    <div className="absolute bottom-6 left-6 right-6">
-                                        <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight">{selectedProduct.name}</h2>
-                                        <p className="text-slate-200 mt-2 text-sm md:text-base font-light">{selectedProduct.shortDesc}</p>
-                                    </div>
-                                </div>
-                                
-                                {/* Dynamic HTML Content Area */}
-                                <div className="p-6 md:p-10 flex-grow bg-white">
-                                    <div 
-                                        className="text-slate-700 prose prose-slate max-w-none"
-                                        dangerouslySetInnerHTML={{ __html: getProductHTML(selectedProduct) }}
-                                    />
+                                    {/* Close Button floating top-right (higher z-index, clearly visible above header on mobile) */}
+                                    <button 
+                                        onClick={() => setSelectedProduct(null)} 
+                                        className="absolute top-4 right-4 w-10 h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-slate-900 hover:bg-white transition-colors z-20 shadow-sm border border-slate-200"
+                                    >
+                                        <X size={20} />
+                                    </button>
                                     
-                                    <div className="mt-10 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-                                        <p className="text-sm text-slate-500 font-medium">Ready to fulfill large-scale requirements.</p>
-                                        <button 
-                                            onClick={() => { setSelectedProduct(null); setPage('contact'); window.scrollTo(0,0); }} 
-                                            className="w-full sm:w-auto bg-[#0F172A] hover:bg-slate-800 text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs transition-all shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-3"
-                                        >
-                                            Inquire Bulk Rate <ArrowRight size={16} className="text-[#B58D54]" />
-                                        </button>
+                                    {/* Modal Hero Image */}
+                                    <div className="h-64 sm:h-80 w-full relative shrink-0">
+                                        <img src={selectedProduct.displayImage} alt={selectedProduct.name} className="w-full h-full object-cover" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+                                        <div className="absolute bottom-6 left-6 right-6">
+                                            <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight">{selectedProduct.name}</h2>
+                                            <p className="text-slate-200 mt-2 text-sm md:text-base font-light">{selectedProduct.shortDesc}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </motion.div>
-                        </div>
-                    )}
-                </AnimatePresence>
+                                    
+                                    {/* Dynamic HTML Content Area */}
+                                    <div className="p-6 md:p-10 flex-grow bg-white">
+                                        <div 
+                                            className="text-slate-700 prose prose-slate max-w-none"
+                                            dangerouslySetInnerHTML={{ __html: getProductHTML(selectedProduct) }}
+                                        />
+                                        
+                                        <div className="mt-10 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                                            <p className="text-sm text-slate-500 font-medium">Ready to fulfill large-scale requirements.</p>
+                                            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                                                {/* Mobile Close Button (at the bottom, next to CTA, highly reachable for thumbs) */}
+                                                <button 
+                                                    onClick={() => setSelectedProduct(null)} 
+                                                    className="w-full sm:w-auto border border-slate-300 hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs transition-all flex items-center justify-center"
+                                                >
+                                                    Close
+                                                </button>
+                                                <button 
+                                                    onClick={() => { setSelectedProduct(null); setPage('contact'); window.scrollTo(0,0); }} 
+                                                    className="w-full sm:w-auto bg-[#0F172A] hover:bg-slate-800 text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs transition-all shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-3"
+                                                >
+                                                    Inquire Bulk Rate <ArrowRight size={16} className="text-[#B58D54]" />
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            </div>
+                        )}
+                    </AnimatePresence>,
+                    document.body
+                )}
 
             </div>
         </motion.div>
