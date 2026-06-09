@@ -1779,14 +1779,117 @@ const GlobalNetwork = ({ setPage }) => {
     );
 };
 
+const LogoPreloader = () => {
+    return (
+        <motion.div 
+            initial={{ opacity: 1 }}
+            exit={{ 
+                opacity: 0,
+                transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] }
+            }}
+            className="fixed inset-0 z-[99999] bg-[#050B14] flex flex-col items-center justify-center overflow-hidden"
+        >
+            <div className="relative flex flex-col items-center justify-center">
+                {/* Golden ambient glow */}
+                <motion.div 
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ 
+                        opacity: [0.15, 0.35, 0.15], 
+                        scale: [1, 1.1, 1] 
+                    }}
+                    transition={{ 
+                        duration: 3, 
+                        repeat: Infinity, 
+                        ease: "easeInOut" 
+                    }}
+                    className="absolute w-64 h-64 bg-[#B58D54]/10 rounded-full blur-3xl"
+                />
+
+                {/* Peacock Logo */}
+                <motion.img 
+                    src="/assets/peacockillustration.png" 
+                    alt="Peacock Preloader"
+                    initial={{ opacity: 0, y: 30, scale: 0.95, filter: "blur(5px)" }}
+                    animate={{ 
+                        opacity: 1, 
+                        y: 0, 
+                        scale: 1, 
+                        filter: "blur(0px)",
+                        transition: { duration: 1.2, ease: [0.215, 0.610, 0.355, 1.000] }
+                    }}
+                    exit={{ 
+                        opacity: 0, 
+                        y: -40, 
+                        scale: 0.98,
+                        filter: "blur(3px)",
+                        transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] }
+                    }}
+                    className="w-24 h-24 md:w-32 md:h-32 object-contain relative z-10 brightness-0 invert"
+                    onError={(e) => {
+                        e.target.style.display = 'none';
+                    }}
+                />
+
+                {/* Decorative golden progress line */}
+                <motion.div 
+                    initial={{ width: 0, opacity: 0 }}
+                    animate={{ 
+                        width: 140, 
+                        opacity: 0.6,
+                        transition: { delay: 0.4, duration: 1.2, ease: "easeInOut" }
+                    }}
+                    exit={{ 
+                        width: 0, 
+                        opacity: 0,
+                        transition: { duration: 0.4, ease: "easeInOut" }
+                    }}
+                    className="h-[1px] bg-gradient-to-r from-transparent via-[#B58D54] to-transparent mt-6"
+                />
+
+                <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ 
+                        opacity: [0.4, 0.8, 0.4],
+                        transition: { delay: 0.6, duration: 2, repeat: Infinity, ease: "easeInOut" }
+                    }}
+                    exit={{ opacity: 0 }}
+                    className="text-[9px] tracking-[0.3em] text-[#B58D54] uppercase font-bold mt-4"
+                >
+                    Raj &amp; Nandini
+                </motion.span>
+            </div>
+        </motion.div>
+    );
+};
+
 // --- MAIN APP ---
 
 export default function App() {
+    const [isLoading, setIsLoading] = useState(true);
+
     // Determine the initial page from the browser URL path on load
     const [currentPage, setCurrentPage] = useState(() => {
         const path = window.location.pathname.replace(/^\//, '');
         return navigation.some(n => n.id === path) ? path : 'home';
     });
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 2200);
+        return () => clearTimeout(timer);
+    }, []);
+
+    useEffect(() => {
+        if (isLoading) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isLoading]);
 
     // Listen for browser back/forward navigation
     useEffect(() => {
@@ -1823,6 +1926,10 @@ export default function App() {
 
     return (
         <div className="relative bg-slate-950 font-sans text-slate-900 selection:bg-stone-300 selection:text-slate-900">
+            <AnimatePresence>
+                {isLoading && <LogoPreloader key="preloader" />}
+            </AnimatePresence>
+            
             <Navbar currentPage={currentPage} setPage={setCurrentPage} />
             
             <main className="relative z-10 flex flex-col bg-stone-50 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-b-[2rem] sm:rounded-b-[3rem] mb-0 md:mb-[70vh] min-h-screen">
