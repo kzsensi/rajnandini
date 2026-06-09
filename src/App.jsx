@@ -1167,107 +1167,176 @@ const Products = ({ setPage }) => {
 };
 
 const Contact = () => {
+    const [copiedEmail, setCopiedEmail] = useState(false);
+    const [copiedGst, setCopiedGst] = useState(false);
+
+    const handleCopyEmail = () => {
+        navigator.clipboard.writeText(EMAIL);
+        setCopiedEmail(true);
+        setTimeout(() => setCopiedEmail(false), 2000);
+    };
+
+    const handleCopyGst = () => {
+        navigator.clipboard.writeText(GSTIN);
+        setCopiedGst(true);
+        setTimeout(() => setCopiedGst(false), 2000);
+    };
+
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-stone-50 min-h-screen">
-             <PageHeader title="Contact Operations" subtitle="Direct lines to our procurement and sales teams." />
+             <PageHeader title="Contact Operations" subtitle="Direct connections to our procurement, sales, and logistics teams." bgImage="/assets/product_banner.png" />
              
              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-                <div className="grid lg:grid-cols-12 gap-16 mb-24">
+                <div className="grid lg:grid-cols-12 gap-8 md:gap-12 mb-24">
                     
-                    {/* INQUIRY FORM */}
-                    <SectionReveal className="lg:col-span-7 bg-white p-8 md:p-12 rounded-lg shadow-sm border border-slate-100">
-                        <h2 className="text-3xl font-bold text-slate-900 mb-2 uppercase">Business Inquiry Form</h2>
-                        <p className="text-slate-500 mb-8 font-light">Submit your bulk material requirements or RFQs directly to our sales desk.</p>
-                        
-                        <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                            <div className="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <label className="block text-xs font-bold text-slate-900 uppercase tracking-widest mb-2">Company Name</label>
-                                    <input type="text" className="w-full px-4 py-3 rounded border border-slate-200 focus:border-slate-900 focus:ring-0 outline-none transition-all bg-stone-50" placeholder="Enter company name" />
+                    {/* PRIMARY CONTACT PATHWAYS */}
+                    <div className="lg:col-span-7 space-y-8">
+                        <SectionReveal className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-100 relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-40 h-40 bg-green-500/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
+                            
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="w-12 h-12 rounded-2xl bg-green-50 flex items-center justify-center text-green-600">
+                                    <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.002-2.637-1.019-5.117-2.875-6.976C16.592 1.888 14.114.869 11.488.869c-5.442 0-9.87 4.42-9.874 9.86-.001 1.77.476 3.495 1.385 5.023L1.936 21.05l5.59-1.467c-.29-.118-.567-.282-.879-.429zm11.233-5.277c-.3-.149-1.772-.874-2.046-.975-.274-.1-.474-.149-.674.15-.2.299-.774.975-.949 1.173-.175.199-.349.224-.649.075-.3-.149-1.266-.467-2.41-1.484-.89-.791-1.49-1.77-1.665-2.07-.175-.299-.019-.461.13-.609.135-.133.3-.349.449-.523.15-.174.2-.299.3-.498.1-.2.05-.374-.025-.523-.075-.149-.674-1.62-.923-2.219-.242-.585-.487-.506-.674-.515-.173-.008-.374-.01-.574-.01-.2 0-.524.075-.798.374-.275.299-1.047 1.022-1.047 2.492 0 1.47 1.073 2.89 1.222 3.09.15.199 2.112 3.224 5.116 4.522.714.31 1.272.495 1.707.633.717.227 1.37.195 1.887.118.575-.085 1.772-.723 2.022-1.42.25-.697.25-1.295.175-1.42-.075-.125-.275-.199-.575-.349z" />
+                                    </svg>
                                 </div>
                                 <div>
-                                    <label className="block text-xs font-bold text-slate-900 uppercase tracking-widest mb-2">Contact Person</label>
-                                    <input type="text" className="w-full px-4 py-3 rounded border border-slate-200 focus:border-slate-900 focus:ring-0 outline-none transition-all bg-stone-50" placeholder="Enter full name" />
+                                    <h3 className="text-2xl font-bold text-slate-900 uppercase">WhatsApp Channels</h3>
+                                    <p className="text-slate-500 text-sm font-light">Get immediate support, quote requests, and order updates.</p>
                                 </div>
                             </div>
-                            <div className="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <label className="block text-xs font-bold text-slate-900 uppercase tracking-widest mb-2">Email Address</label>
-                                    <input type="email" className="w-full px-4 py-3 rounded border border-slate-200 focus:border-slate-900 focus:ring-0 outline-none transition-all bg-stone-50" placeholder="corporate@email.com" />
-                                </div>
-                                <div>
-                                    <label className="block text-xs font-bold text-slate-900 uppercase tracking-widest mb-2">Phone Number</label>
-                                    <input type="tel" className="w-full px-4 py-3 rounded border border-slate-200 focus:border-slate-900 focus:ring-0 outline-none transition-all bg-stone-50" placeholder="+91 00000 00000" />
-                                </div>
-                            </div>
-                            <div>
-                                <label className="block text-xs font-bold text-slate-900 uppercase tracking-widest mb-2">Inquiry Type</label>
-                                <select className="w-full px-4 py-3 rounded border border-slate-200 focus:border-slate-900 focus:ring-0 outline-none transition-all bg-stone-50">
-                                    <option>Bulk Order Inquiry</option>
-                                    <option>Import / Export Requirement</option>
-                                    <option>Vendor / Mill Partnership</option>
-                                    <option>General Support</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label className="block text-xs font-bold text-slate-900 uppercase tracking-widest mb-2">Material Specifications & Quantity</label>
-                                <textarea rows="4" className="w-full px-4 py-3 rounded border border-slate-200 focus:border-slate-900 focus:ring-0 outline-none transition-all bg-stone-50 resize-none" placeholder="Detail grades, dimensions, tonnage, and delivery location..."></textarea>
-                            </div>
-                            <Button primary className="w-full py-4 text-lg">Submit Request for Quotation</Button>
-                        </form>
-                    </SectionReveal>
+                            
+                            <div className="grid sm:grid-cols-2 gap-4 mt-6">
+                                <a 
+                                    href="https://wa.me/919113752733?text=Hello,%20I'm%20interested%20in%20bulk%20iron%20and%20minerals%20materials.%20Please%20provide%20a%20quote." 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    className="flex flex-col p-6 rounded-2xl border border-slate-100 bg-stone-50 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-all duration-300 group"
+                                >
+                                    <span className="text-xs font-bold text-stone-500 group-hover:text-stone-400 uppercase tracking-widest mb-1">Support Desk 1</span>
+                                    <span className="text-lg font-bold tracking-tight mb-4">+91 91137 52733</span>
+                                    <span className="mt-auto inline-flex items-center text-xs font-bold uppercase tracking-wider text-green-600 group-hover:text-green-400">
+                                        Chat Now <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                                    </span>
+                                </a>
 
-                    {/* CONTACT INFO */}
+                                <a 
+                                    href="https://wa.me/919334237331?text=Hello,%20I'm%20interested%20in%20bulk%20iron%20and%20minerals%20materials.%20Please%20provide%20a%20quote." 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    className="flex flex-col p-6 rounded-2xl border border-slate-100 bg-stone-50 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-all duration-300 group"
+                                >
+                                    <span className="text-xs font-bold text-stone-500 group-hover:text-stone-400 uppercase tracking-widest mb-1">Support Desk 2</span>
+                                    <span className="text-lg font-bold tracking-tight mb-4">+91 93342 37331</span>
+                                    <span className="mt-auto inline-flex items-center text-xs font-bold uppercase tracking-wider text-green-600 group-hover:text-green-400">
+                                        Chat Now <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                                    </span>
+                                </a>
+                            </div>
+                        </SectionReveal>
+
+                        <SectionReveal className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-100 relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-40 h-40 bg-[#B58D54]/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
+                            
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="w-12 h-12 rounded-2xl bg-[#B58D54]/10 flex items-center justify-center text-[#B58D54]">
+                                    <Mail className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <h3 className="text-2xl font-bold text-slate-900 uppercase">Email Dispatch</h3>
+                                    <p className="text-slate-500 text-sm font-light">Submit technical requests, purchase orders, or detailed RFQs.</p>
+                                </div>
+                            </div>
+                            
+                            <div className="p-6 rounded-2xl border border-slate-100 bg-stone-50 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                                <div>
+                                    <span className="text-xs font-bold text-stone-500 uppercase tracking-widest mb-1 block">Inquiry Mailbox</span>
+                                    <span className="text-lg md:text-xl font-bold tracking-tight text-slate-900 break-all">{EMAIL}</span>
+                                </div>
+                                <div className="flex gap-2 w-full md:w-auto">
+                                    <button 
+                                        onClick={handleCopyEmail}
+                                        className="flex-1 md:flex-none border border-slate-200 bg-white hover:bg-stone-100 text-slate-800 font-bold text-xs uppercase tracking-wider px-6 py-4 rounded-xl transition-all"
+                                    >
+                                        {copiedEmail ? 'Copied!' : 'Copy Address'}
+                                    </button>
+                                    <a 
+                                        href={`mailto:${EMAIL}?subject=Industrial%20Material%20Inquiry%20-%20Raj%20%26%20Nandini%20Iron%20and%20Minerals&body=Dear%20Sales%20Team,%0D%0A%0D%0AWe%20are%20interested%20in%20procuring%20the%20following%20materials:%0D%0A%0D%0A-%20Material%20Type:%20%0D%0A-%20Specifications%20/%20Grade:%20%0D%0A-%20Required%20Quantity%20(in%20Tons):%20%0D%0A-%20Delivery%20Location:%20%0D%0A%0D%0APlease%20provide%20your%20best%20quotation%20along%20with%20lead%20times.%0D%0A%0D%0ABest%20regards,%0D%0A[Your%20Name]%0D%0A[Your%20Company%20Name]%0D%0A[Contact%20Number]`}
+                                        className="flex-1 md:flex-none bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider px-6 py-4 rounded-xl text-center transition-all shadow-md"
+                                    >
+                                        Send Mail
+                                    </a>
+                                </div>
+                            </div>
+                        </SectionReveal>
+                    </div>
+
+                    {/* CORPORATE REGISTRATION & COMPLIANCE DETAILS */}
                     <SectionReveal className="lg:col-span-5 space-y-8">
-                        <div className="bg-slate-900 text-white p-8 rounded-lg shadow-xl">
-                            <h2 className="text-2xl font-bold mb-8 uppercase border-b border-slate-700 pb-4">Direct Contacts</h2>
+                        <div className="bg-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-xl relative overflow-hidden">
+                            <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-[#B58D54]/10 rounded-full blur-2xl"></div>
+                            
+                            <h2 className="text-xl font-bold mb-6 uppercase tracking-wider border-b border-slate-800 pb-4 flex items-center gap-3">
+                                <ShieldCheck className="w-5 h-5 text-[#B58D54]" /> Corporate Compliance
+                            </h2>
                             <div className="space-y-6">
                                 <div className="flex items-start">
-                                    <Phone className="w-6 h-6 text-stone-400 mr-4 shrink-0" />
+                                    <Phone className="w-5 h-5 text-stone-400 mr-4 shrink-0 mt-0.5" />
                                     <div>
-                                        <h4 className="font-bold text-sm uppercase tracking-widest mb-1 text-stone-400">Sales Desk</h4>
-                                        <p className="text-slate-200 text-lg font-semibold">{PHONE}</p>
+                                        <h4 className="font-bold text-xs uppercase tracking-widest mb-1 text-stone-400">Direct Call Lines</h4>
+                                        <p className="text-slate-200 text-base font-semibold">{PHONE}</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start">
-                                    <Mail className="w-6 h-6 text-stone-400 mr-4 shrink-0" />
+                                    <FileText className="w-5 h-5 text-stone-400 mr-4 shrink-0 mt-0.5" />
                                     <div>
-                                        <h4 className="font-bold text-sm uppercase tracking-widest mb-1 text-stone-400">Email Inquiries</h4>
-                                        <p className="text-slate-200">{EMAIL}</p>
+                                        <h4 className="font-bold text-xs uppercase tracking-widest mb-1 text-stone-400">GSTIN Registration</h4>
+                                        <p className="text-slate-200 font-mono tracking-wider font-semibold mb-2">{GSTIN}</p>
+                                        <button 
+                                            onClick={handleCopyGst}
+                                            className="text-xs text-[#B58D54] hover:text-[#A37B42] font-semibold transition-colors flex items-center gap-1.5"
+                                        >
+                                            {copiedGst ? 'Copied!' : 'Copy GSTIN'}
+                                        </button>
                                     </div>
                                 </div>
                                 <div className="flex items-start">
-                                    <FileText className="w-6 h-6 text-stone-400 mr-4 shrink-0" />
+                                    <Globe className="w-5 h-5 text-stone-400 mr-4 shrink-0 mt-0.5" />
                                     <div>
-                                        <h4 className="font-bold text-sm uppercase tracking-widest mb-1 text-stone-400">GSTIN</h4>
-                                        <p className="text-slate-200 font-mono tracking-wider">{GSTIN}</p>
+                                        <h4 className="font-bold text-xs uppercase tracking-widest mb-1 text-stone-400">Scope of Work</h4>
+                                        <p className="text-slate-300 text-sm leading-relaxed">Domestic Wholesale Trading, Importing, Exporting & Custom Procurement Projects.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="bg-white border border-slate-200 p-8 rounded-lg">
-                            <h4 className="font-bold text-slate-900 uppercase tracking-widest mb-4 border-b border-slate-100 pb-2">Business Hours</h4>
-                            <div className="flex justify-between text-slate-600 text-sm mb-2"><span>Monday - Saturday</span> <span className="font-bold text-slate-900">09:00 AM - 07:00 PM</span></div>
-                            <div className="flex justify-between text-slate-600 text-sm"><span>Sunday</span> <span className="font-bold text-red-600">Closed (Operations only)</span></div>
-                        </div>
-
-                        <div>
-                            <a href={`https://wa.me/${WHATSAPP_PHONE}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full px-6 py-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-bold uppercase tracking-wider shadow-md">
-                                Immediate WhatsApp Support
-                            </a>
+                        <div className="bg-white border border-slate-200 p-8 rounded-3xl">
+                            <h4 className="font-bold text-slate-900 uppercase tracking-widest mb-6 border-b border-slate-100 pb-3 text-sm flex items-center gap-2">
+                                <span className="w-2.5 h-2.5 rounded-full bg-slate-900"></span> Business Operating Hours
+                            </h4>
+                            <div className="space-y-3">
+                                <div className="flex justify-between text-slate-600 text-sm">
+                                    <span>Monday - Saturday</span> 
+                                    <span className="font-bold text-slate-900">09:00 AM - 07:00 PM</span>
+                                </div>
+                                <div className="flex justify-between text-slate-600 text-sm">
+                                    <span>Sunday</span> 
+                                    <span className="font-bold text-red-500">Closed (Operations Only)</span>
+                                </div>
+                            </div>
                         </div>
                     </SectionReveal>
+
                 </div>
 
                 {/* FAQs */}
                 <SectionReveal className="max-w-4xl mx-auto mt-20">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-10 text-center uppercase">Frequently Asked Questions</h2>
+                    <h2 className="text-3xl font-bold text-slate-900 mb-10 text-center uppercase tracking-tight">Frequently Asked Questions</h2>
                     <div className="space-y-4">
                         {faqs.map((faq, idx) => (
-                            <div key={idx} className="bg-white border border-slate-200 p-6 rounded-lg">
+                            <div key={idx} className="bg-white border border-slate-200 p-6 md:p-8 rounded-2xl shadow-sm">
                                 <h4 className="font-bold text-slate-900 text-lg mb-2">{faq.q}</h4>
-                                <p className="text-slate-600">{faq.a}</p>
+                                <p className="text-slate-600 leading-relaxed text-sm md:text-base">{faq.a}</p>
                             </div>
                         ))}
                     </div>
