@@ -6,7 +6,7 @@ import { PageHeader, SectionReveal, COMPANY_NAME } from '../App.jsx';
 const ImportExport = () => {
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-stone-50 min-h-screen">
-            <PageHeader title="Import & Export Operations" subtitle="Bridging global markets with seamless international trade operations." bgImage="https://images.unsplash.com/photo-1551281476-eb34676106e5?q=80&w=2000&auto=format&fit=crop" />
+            <PageHeader title="Import & Export Operations" subtitle="Bridging global markets with seamless international trade operations." bgImage="/assets/Import_Export_Operations_banner.png" />
             
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
                 

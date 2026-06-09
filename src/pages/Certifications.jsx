@@ -15,7 +15,7 @@ const Certifications = () => {
 
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-white min-h-screen">
-             <PageHeader title="Compliance & Certifications" subtitle="Operating with absolute transparency and rigorous legal compliance." />
+             <PageHeader title="Compliance & Certifications" subtitle="Operating with absolute transparency and rigorous legal compliance." bgImage="/assets/certifications_banner.png" />
              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
                 
                 <SectionReveal className="text-center max-w-3xl mx-auto mb-16">

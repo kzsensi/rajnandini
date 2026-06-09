@@ -6,7 +6,7 @@ import { PageHeader, SectionReveal } from '../App.jsx';
 const Infrastructure = () => {
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-white min-h-screen">
-            <PageHeader title="Infrastructure & Network" subtitle="The operational backbone that guarantees scale, speed, and reliability." />
+            <PageHeader title="Infrastructure & Network" subtitle="The operational backbone that guarantees scale, speed, and reliability." bgImage="/assets/Infrastructure&Network_banner.png" />
             
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
                 <SectionReveal className="text-center max-w-4xl mx-auto mb-20">

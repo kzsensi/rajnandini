@@ -19,8 +19,10 @@ import Certifications from './pages/Certifications';
 // --- COMPREHENSIVE B2B DATA ---
 
 export const COMPANY_NAME = "Raj Nandini Iron and Minerals";
-const EMAIL = "sales@rajnandiniiron.com";
-const PHONE = "+91 98765 43210"; // Placeholder
+const EMAIL = "rajnandiniironandminerals@gmail.com";
+const PHONE = "+91 91137 52733 / +91 93342 37331";
+const WHATSAPP_PHONE = "919113752733";
+const GSTIN = "20HXGPP9326A1ZN";
 
 const navigation = [
     { id: 'home', label: 'Home' },
@@ -43,11 +45,11 @@ const stats = [
 ];
 
 const heroAccordionItems = [
-    { id: 1, title: 'Structural Steel', imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop' },
-    { id: 2, title: 'Bars & Rebars', imageUrl: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop' },
-    { id: 3, title: 'Flat Products', imageUrl: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=800&auto=format&fit=crop' },
-    { id: 4, title: 'Raw Materials', imageUrl: 'https://images.unsplash.com/photo-1587582423116-ec07293f0395?q=80&w=800&auto=format&fit=crop' },
-    { id: 5, title: 'Industrial Scrap', imageUrl: 'https://images.unsplash.com/photo-1530982011887-3cc11cc85693?q=80&w=800&auto=format&fit=crop' },
+    { id: 1, title: 'Structural Steel', imageUrl: '/assets/hero_structural_steel.png' },
+    { id: 2, title: 'Bars & Rebars', imageUrl: '/assets/hero_bars_and_rebars.png' },
+    { id: 3, title: 'Flat Products', imageUrl: '/assets/hero_flat_products.png' },
+    { id: 4, title: 'Raw Materials', imageUrl: '/assets/hero_raw_material.png' },
+    { id: 5, title: 'Industrial Scrap', imageUrl: '/assets/hero_industrial_scrape.png' },
 ];
 
 const comprehensiveProducts = [
@@ -986,6 +988,7 @@ const Products = ({ setPage }) => {
             <PageHeader 
                 title="Procurement Catalog" 
                 subtitle="Detailed specifications of our bulk-supply capabilities across 9 industrial categories."
+                bgImage="/assets/product_banner.png"
             />
             
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
@@ -1219,13 +1222,6 @@ const Contact = () => {
                             <h2 className="text-2xl font-bold mb-8 uppercase border-b border-slate-700 pb-4">Direct Contacts</h2>
                             <div className="space-y-6">
                                 <div className="flex items-start">
-                                    <MapPin className="w-6 h-6 text-stone-400 mr-4 shrink-0" />
-                                    <div>
-                                        <h4 className="font-bold text-sm uppercase tracking-widest mb-1 text-stone-400">Office Location</h4>
-                                        <p className="text-slate-200">123 Industrial Hub, Procurement Zone<br/>Modinagar, Uttar Pradesh, India</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start">
                                     <Phone className="w-6 h-6 text-stone-400 mr-4 shrink-0" />
                                     <div>
                                         <h4 className="font-bold text-sm uppercase tracking-widest mb-1 text-stone-400">Sales Desk</h4>
@@ -1236,7 +1232,14 @@ const Contact = () => {
                                     <Mail className="w-6 h-6 text-stone-400 mr-4 shrink-0" />
                                     <div>
                                         <h4 className="font-bold text-sm uppercase tracking-widest mb-1 text-stone-400">Email Inquiries</h4>
-                                        <p className="text-slate-200">{EMAIL}<br/>import.export@rajnandiniiron.com</p>
+                                        <p className="text-slate-200">{EMAIL}</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-start">
+                                    <FileText className="w-6 h-6 text-stone-400 mr-4 shrink-0" />
+                                    <div>
+                                        <h4 className="font-bold text-sm uppercase tracking-widest mb-1 text-stone-400">GSTIN</h4>
+                                        <p className="text-slate-200 font-mono tracking-wider">{GSTIN}</p>
                                     </div>
                                 </div>
                             </div>
@@ -1249,7 +1252,7 @@ const Contact = () => {
                         </div>
 
                         <div>
-                            <a href={`https://wa.me/${PHONE.replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full px-6 py-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-bold uppercase tracking-wider shadow-md">
+                            <a href={`https://wa.me/${WHATSAPP_PHONE}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full px-6 py-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-bold uppercase tracking-wider shadow-md">
                                 Immediate WhatsApp Support
                             </a>
                         </div>
@@ -1432,6 +1435,30 @@ const Footer = ({ setPage }) => {
                                     </button>
                                 </li>
                             ))}
+                        </ul>
+                    </div>
+                    <div>
+                        <p className="text-slate-100 font-bold mb-6 uppercase tracking-widest text-sm border-b border-slate-800 pb-3">Contact Us</p>
+                        <ul className="space-y-4 text-slate-500 font-medium text-sm">
+                            <li className="flex flex-col gap-0.5">
+                                <span className="text-slate-400 font-bold text-xs uppercase tracking-wider block">Email</span>
+                                <a href={`mailto:${EMAIL}`} className="hover:text-white transition-colors break-all">
+                                    {EMAIL}
+                                </a>
+                            </li>
+                            <li className="flex flex-col gap-0.5">
+                                <span className="text-slate-400 font-bold text-xs uppercase tracking-wider block">Phone</span>
+                                <span className="text-slate-300">
+                                    +91 91137 52733<br />
+                                    +91 93342 37331
+                                </span>
+                            </li>
+                            <li className="flex flex-col gap-0.5">
+                                <span className="text-slate-400 font-bold text-xs uppercase tracking-wider block">GSTIN</span>
+                                <span className="text-slate-300 font-mono text-xs">
+                                    {GSTIN}
+                                </span>
+                            </li>
                         </ul>
                     </div>
                 </div>

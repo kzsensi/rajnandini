@@ -6,7 +6,7 @@ import { Factory, Building2, HardHat, ShieldCheck } from 'lucide-react';
 const Industries = () => {
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-white min-h-screen">
-             <PageHeader title="Industries We Serve" subtitle="Delivering vital raw materials to the sectors that build the economy." />
+             <PageHeader title="Industries We Serve" subtitle="Delivering vital raw materials to the sectors that build the economy." bgImage="/assets/industries_we_server_banner.png" />
              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
                 <div className="grid md:grid-cols-2 gap-10">
                     {industriesServed.map((industry, idx) => (
