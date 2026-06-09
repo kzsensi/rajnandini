@@ -1535,7 +1535,7 @@ const Footer = ({ setPage }) => {
                 <img 
                     src="/assets/rajnandini_text_logo.png" 
                     alt="Raj &amp; Nandini" 
-                    className="w-full max-w-5xl h-auto max-h-[10vh] md:max-h-[14vh] object-contain select-none pointer-events-auto opacity-80 hover:opacity-100 transition-opacity"
+                    className="w-[90%] md:w-full max-w-5xl h-auto min-h-[40px] md:min-h-[60px] object-contain select-none pointer-events-auto opacity-80 hover:opacity-100 transition-opacity"
                     onError={(e) => {
                         e.target.style.display = 'none';
                         if (e.target.nextSibling) e.target.nextSibling.style.display = 'block';
