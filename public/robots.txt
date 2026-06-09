@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Disallow build artifacts and source files
+Disallow: /src/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Allow all assets (images, banners, etc.)
+Allow: /assets/
+
+# Sitemap location
+Sitemap: https://www.rajnandiniironandminerals.com/sitemap.xml

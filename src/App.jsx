@@ -19,6 +19,7 @@ import Certifications from './pages/Certifications';
 // --- COMPREHENSIVE B2B DATA ---
 
 export const COMPANY_NAME = "Raj Nandini Iron and Minerals";
+export const SITE_NAME = "Raj & Nandini Iron and Minerals";
 const EMAIL = "rajnandiniironandminerals@gmail.com";
 const PHONE = "+91 91137 52733 / +91 93342 37331";
 const WHATSAPP_PHONE = "919113752733";
@@ -1400,11 +1401,11 @@ const Footer = ({ setPage }) => {
             <div className="flex flex-col md:flex-row justify-between items-start w-full max-w-7xl mx-auto gap-12 md:gap-0">
                 <div className="max-w-sm">
                     <div className="flex items-center gap-4 mb-6 text-white">
-                        <img src="/assets/logo.png" alt="Raj Nandini Logo" className="w-auto h-16 md:h-20 object-contain brightness-0 invert" onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
+                        <img src="/assets/logo.png" alt={`${SITE_NAME} Logo`} className="w-auto h-16 md:h-20 object-contain brightness-0 invert" onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
                         <div className="hidden items-center justify-center w-16 h-16 bg-[#B58D54] text-white rounded-full font-bold text-2xl">RN</div>
                     </div>
                     <p className="text-sm leading-relaxed mb-6 text-slate-400 font-light">
-                        Premier B2B Trader, Wholesaler, Supplier, Importer, and Exporter serving bulk material requirements across 25+ states in India and international markets.
+                        {SITE_NAME} – Premier B2B Trader, Wholesaler, Supplier, Importer &amp; Exporter of steel products, raw materials &amp; industrial scrap. Serving 25+ states across India.
                     </p>
                     <div className="flex items-center gap-2 text-stone-500 text-xs tracking-widest font-bold uppercase">
                         <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
@@ -1465,10 +1466,13 @@ const Footer = ({ setPage }) => {
             </div>
 
             {/* BIG BOLD TEXT REVEAL */}
-            <div className="w-full flex justify-center items-end mt-auto pointer-events-none pb-4 md:pb-0">
-                <h1 className="text-[12vw] sm:text-[13vw] md:text-[14vw] lg:text-[15vw] whitespace-nowrap font-black leading-[0.75] tracking-tighter text-slate-100/90 select-none uppercase">
-                    Raj Nandini
-                </h1>
+            <div className="w-full flex flex-col items-center justify-end mt-auto pointer-events-none pb-4 md:pb-0">
+                <h2 className="text-[10vw] sm:text-[11vw] md:text-[12vw] lg:text-[13vw] whitespace-nowrap font-black leading-[0.75] tracking-tighter text-slate-100/90 select-none uppercase">
+                    Raj &amp; Nandini
+                </h2>
+                <p className="pointer-events-auto text-slate-600 text-xs tracking-widest uppercase mt-2 pb-2">
+                    © {new Date().getFullYear()} {SITE_NAME} · GSTIN: {GSTIN} · All Rights Reserved
+                </p>
             </div>
         </footer>
     );
