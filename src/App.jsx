@@ -1532,10 +1532,19 @@ const Footer = ({ setPage }) => {
 
             {/* BIG BOLD TEXT REVEAL */}
             <div className="w-full flex flex-col items-center justify-end mt-auto pointer-events-none pb-4 md:pb-0">
-                <h2 className="text-[10vw] sm:text-[11vw] md:text-[12vw] lg:text-[13vw] whitespace-nowrap font-black leading-[0.75] tracking-tighter text-slate-100/90 select-none uppercase">
+                <img 
+                    src="/assets/rajnandini_text_logo.png" 
+                    alt="Raj &amp; Nandini" 
+                    className="w-full max-w-7xl h-auto object-contain select-none pointer-events-auto opacity-80 hover:opacity-100 transition-opacity"
+                    onError={(e) => {
+                        e.target.style.display = 'none';
+                        if (e.target.nextSibling) e.target.nextSibling.style.display = 'block';
+                    }}
+                />
+                <h2 style={{ display: 'none' }} className="text-[10vw] sm:text-[11vw] md:text-[12vw] lg:text-[13vw] whitespace-nowrap font-black leading-[0.75] tracking-tighter text-slate-100/90 select-none uppercase">
                     Raj &amp; Nandini
                 </h2>
-                <p className="pointer-events-auto text-slate-600 text-xs tracking-widest uppercase mt-2 pb-2">
+                <p className="pointer-events-auto text-slate-600 text-xs tracking-widest uppercase mt-4 pb-2">
                     © {new Date().getFullYear()} {SITE_NAME} · GSTIN: {GSTIN} · All Rights Reserved
                 </p>
             </div>
