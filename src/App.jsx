@@ -1461,27 +1461,27 @@ const Navbar = ({ currentPage, setPage }) => {
 
 const Footer = ({ setPage }) => {
     return (
-        <footer className="relative md:fixed bottom-0 left-0 w-full h-auto md:h-[70vh] z-0 bg-slate-950 text-white flex flex-col justify-between pt-16 md:pt-24 pb-8 px-6 md:px-12 lg:px-20 overflow-hidden">
+        <footer className="relative md:fixed bottom-0 left-0 w-full h-auto md:h-[480px] z-0 bg-slate-950 text-white flex flex-col justify-between pt-10 md:pt-14 pb-6 px-6 md:px-12 lg:px-20 overflow-hidden">
             {/* Footer Top Links */}
-            <div className="flex flex-col md:flex-row justify-between items-start w-full max-w-7xl mx-auto gap-12 md:gap-0">
+            <div className="flex flex-col md:flex-row justify-between items-start w-full max-w-7xl mx-auto gap-10 md:gap-0">
                 <div className="max-w-sm">
-                    <div className="flex items-center gap-4 mb-6 text-white">
-                        <img src="/assets/logo.png" alt={`${SITE_NAME} Logo`} className="w-auto h-16 md:h-20 object-contain brightness-0 invert" onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
-                        <div className="hidden items-center justify-center w-16 h-16 bg-[#B58D54] text-white rounded-full font-bold text-2xl">RN</div>
+                    <div className="flex items-center gap-4 mb-4 text-white">
+                        <img src="/assets/logo.png" alt={`${SITE_NAME} Logo`} className="w-auto h-12 md:h-14 object-contain brightness-0 invert" onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
+                        <div className="hidden items-center justify-center w-12 h-12 bg-[#B58D54] text-white rounded-full font-bold text-xl">RN</div>
                     </div>
-                    <p className="text-sm leading-relaxed mb-6 text-slate-400 font-light">
+                    <p className="text-xs leading-relaxed mb-4 text-slate-400 font-light">
                         {SITE_NAME} – Premier B2B Trader, Wholesaler, Supplier, Importer &amp; Exporter of steel products, raw materials &amp; industrial scrap. Serving 25+ states across India.
                     </p>
-                    <div className="flex items-center gap-2 text-stone-500 text-xs tracking-widest font-bold uppercase">
+                    <div className="flex items-center gap-2 text-stone-500 text-[10px] tracking-widest font-bold uppercase">
                         <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                         Accepting Bulk Orders
                     </div>
                 </div>
 
-                <div className="flex flex-wrap gap-16 md:gap-24">
+                <div className="flex flex-wrap gap-12 md:gap-16">
                     <div>
-                        <p className="text-slate-100 font-bold mb-6 uppercase tracking-widest text-sm border-b border-slate-800 pb-3">Corporate Links</p>
-                        <ul className="space-y-4 text-slate-500 font-medium text-sm">
+                        <p className="text-slate-100 font-bold mb-4 uppercase tracking-widest text-xs border-b border-slate-800 pb-2">Corporate Links</p>
+                        <ul className="space-y-3 text-slate-500 font-medium text-xs">
                             {['about', 'founder', 'contact'].map((id) => (
                                 <li key={id}>
                                     <button onClick={() => { setPage(id); window.scrollTo(0,0); }} className="hover:text-white transition-colors uppercase tracking-wider">
@@ -1492,8 +1492,8 @@ const Footer = ({ setPage }) => {
                         </ul>
                     </div>
                     <div>
-                        <p className="text-slate-100 font-bold mb-6 uppercase tracking-widest text-sm border-b border-slate-800 pb-3">Operations</p>
-                        <ul className="space-y-4 text-slate-500 font-medium text-sm">
+                        <p className="text-slate-100 font-bold mb-4 uppercase tracking-widest text-xs border-b border-slate-800 pb-2">Operations</p>
+                        <ul className="space-y-3 text-slate-500 font-medium text-xs">
                             {['products', 'industries', 'import-export', 'infrastructure'].map((id) => (
                                 <li key={id}>
                                     <button onClick={() => { setPage(id); window.scrollTo(0,0); }} className="hover:text-white transition-colors uppercase tracking-wider">
@@ -1504,24 +1504,24 @@ const Footer = ({ setPage }) => {
                         </ul>
                     </div>
                     <div>
-                        <p className="text-slate-100 font-bold mb-6 uppercase tracking-widest text-sm border-b border-slate-800 pb-3">Contact Us</p>
-                        <ul className="space-y-4 text-slate-500 font-medium text-sm">
+                        <p className="text-slate-100 font-bold mb-4 uppercase tracking-widest text-xs border-b border-slate-800 pb-2">Contact Us</p>
+                        <ul className="space-y-3 text-slate-500 font-medium text-xs">
                             <li className="flex flex-col gap-0.5">
-                                <span className="text-slate-400 font-bold text-xs uppercase tracking-wider block">Email</span>
+                                <span className="text-slate-400 font-bold text-[10px] uppercase tracking-wider block">Email</span>
                                 <a href={`mailto:${EMAIL}`} className="hover:text-white transition-colors break-all">
                                     {EMAIL}
                                 </a>
                             </li>
                             <li className="flex flex-col gap-0.5">
-                                <span className="text-slate-400 font-bold text-xs uppercase tracking-wider block">Phone</span>
+                                <span className="text-slate-400 font-bold text-[10px] uppercase tracking-wider block">Phone</span>
                                 <span className="text-slate-300">
                                     +91 91137 52733<br />
                                     +91 93342 37331
                                 </span>
                             </li>
                             <li className="flex flex-col gap-0.5">
-                                <span className="text-slate-400 font-bold text-xs uppercase tracking-wider block">GSTIN</span>
-                                <span className="text-slate-300 font-mono text-xs">
+                                <span className="text-slate-400 font-bold text-[10px] uppercase tracking-wider block">GSTIN</span>
+                                <span className="text-slate-300 font-mono text-[10px]">
                                     {GSTIN}
                                 </span>
                             </li>
@@ -1531,11 +1531,11 @@ const Footer = ({ setPage }) => {
             </div>
 
             {/* BIG BOLD TEXT REVEAL */}
-            <div className="w-full flex flex-col items-center justify-end mt-12 md:mt-auto pointer-events-none pb-4 md:pb-0">
+            <div className="w-full flex flex-col items-center justify-end mt-8 md:mt-auto pointer-events-none pb-2 md:pb-0">
                 <img 
                     src="/assets/rajnandini_text_logo.png" 
                     alt="Raj &amp; Nandini" 
-                    className="w-[80%] md:w-[60%] max-w-3xl h-auto object-contain select-none pointer-events-auto opacity-80 hover:opacity-100 transition-opacity"
+                    className="w-[80%] md:w-[50%] max-w-2xl h-auto max-h-[75px] object-contain select-none pointer-events-auto opacity-80 hover:opacity-100 transition-opacity"
                     onError={(e) => {
                         e.target.style.display = 'none';
                         if (e.target.nextSibling) e.target.nextSibling.style.display = 'block';
@@ -1544,7 +1544,7 @@ const Footer = ({ setPage }) => {
                 <h2 style={{ display: 'none' }} className="text-[10vw] sm:text-[11vw] md:text-[12vw] lg:text-[13vw] whitespace-nowrap font-black leading-[0.75] tracking-tighter text-slate-100/90 select-none uppercase">
                     Raj &amp; Nandini
                 </h2>
-                <p className="pointer-events-auto text-slate-600 text-xs tracking-widest uppercase mt-2 pb-2">
+                <p className="pointer-events-auto text-slate-600 text-[10px] tracking-widest uppercase mt-2 pb-1">
                     © {new Date().getFullYear()} {SITE_NAME} · GSTIN: {GSTIN} · All Rights Reserved
                 </p>
             </div>
