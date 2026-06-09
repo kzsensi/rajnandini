@@ -1846,17 +1846,20 @@ const LogoPreloader = () => {
                     className="h-[1px] bg-gradient-to-r from-transparent via-[#B58D54] to-transparent mt-6"
                 />
 
-                <motion.span
+                <motion.img 
+                    src="/assets/rajnandini_text_logo.png" 
+                    alt="Raj &amp; Nandini"
                     initial={{ opacity: 0 }}
                     animate={{ 
-                        opacity: [0.4, 0.8, 0.4],
+                        opacity: [0.5, 0.85, 0.5],
                         transition: { delay: 0.6, duration: 2, repeat: Infinity, ease: "easeInOut" }
                     }}
                     exit={{ opacity: 0 }}
-                    className="text-[9px] tracking-[0.3em] text-[#B58D54] uppercase font-bold mt-4"
-                >
-                    Raj &amp; Nandini
-                </motion.span>
+                    className="w-36 md:w-44 h-auto mt-4 object-contain select-none"
+                    onError={(e) => {
+                        e.target.style.display = 'none';
+                    }}
+                />
             </div>
         </motion.div>
     );
