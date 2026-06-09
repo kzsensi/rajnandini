@@ -1,4 +1,4 @@
-﻿import { Agentation } from "agentation";
+import { Agentation } from "agentation";
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion';
 import { 
@@ -11,7 +11,7 @@ import {
 
 // --- COMPREHENSIVE B2B DATA ---
 
-const COMPANY_NAME = "Raj Nandini Iron and Minerals";
+export const COMPANY_NAME = "Raj Nandini Iron and Minerals";
 const EMAIL = "sales@rajnandiniiron.com";
 const PHONE = "+91 98765 43210"; // Placeholder
 
@@ -45,111 +45,539 @@ const heroAccordionItems = [
 
 const comprehensiveProducts = [
     {
-        name: "Structural Steel",
-        desc: "Essential structural frameworks for heavy-duty construction and fabrication.",
-        image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop",
-        items: [
-            { 
-                name: "MS Angle", 
-                shortDesc: "Mild steel angles used for structural support and frameworks.", 
-                apps: "Transmission towers, bridges, building frames.", 
-                features: "High tensile strength, excellent weldability.", 
-                supply: "Available in standard cross-sections; bulk tonnage ready for dispatch.",
-                image: "https://images.unsplash.com/photo-1533090481728-3b9e4a3fa0b7?q=80&w=800&auto=format&fit=crop",
-                customHTML: `
-                    <div style="display:flex; flex-direction:column; gap:1.5rem;">
-                        <div>
-                            <h4 style="font-size:0.875rem; font-weight:700; color:#0F172A; text-transform:uppercase; letter-spacing:0.1em; border-bottom:1px solid #E2E8F0; padding-bottom:0.5rem; margin-bottom:0.5rem;">Custom HTML Example</h4>
-                            <p style="color:#475569; line-height:1.6;">This product uses the <b>customHTML</b> property. You can use raw HTML here to create detailed <ul><li style="margin-left:1.5rem; list-style-type:disc;">Bullet points</li><li style="margin-left:1.5rem; list-style-type:disc;">Tables</li><li style="margin-left:1.5rem; list-style-type:disc;">Or any custom layout!</li></ul></p>
-                        </div>
-                        <div>
-                            <h4 style="font-size:0.875rem; font-weight:700; color:#0F172A; text-transform:uppercase; letter-spacing:0.1em; border-bottom:1px solid #E2E8F0; padding-bottom:0.5rem; margin-bottom:0.5rem;">Applications</h4>
-                            <p style="color:#475569; line-height:1.6;">Transmission towers, bridges, building frames.</p>
-                        </div>
-                    </div>
-                `
+        "name": "Structural Steel & Sections",
+        "desc": "Heavy-duty structural sections offering optimal load-bearing support for infrastructure and construction.",
+        "image": "/assets/ms-gi-angle.jpg",
+        "items": [
+            {
+                "name": "MS / GI Angle",
+                "shortDesc": "L-shaped structural steel sections used in construction and engineering.",
+                "image": "/assets/ms-gi-angle.jpg",
+                "specs": [
+                    {
+                        "label": "Grade (MS)",
+                        "value": "IS 2062 Gr. A/B"
+                    },
+                    {
+                        "label": "Specification (GI)",
+                        "value": "Hot-Dip Galvanized as per IS 2629"
+                    },
+                    {
+                        "label": "Size Range",
+                        "value": "20 x 20 x 3 mm to 200 x 200 x 24 mm"
+                    }
+                ],
+                "apps": "transmission towers, industrial sheds, bridges, framing, architectural structures",
+                "features": "high tensile strength, excellent weldability, superior corrosion resistance for GI"
             },
-            { name: "GI Angle", shortDesc: "Galvanized iron angles with enhanced rust protection.", apps: "Outdoor structures, coastal infrastructure.", features: "Corrosion-resistant, extended lifespan.", supply: "Sourced from premium mills with uniform coating thickness." },
-            { name: "MS Channel", shortDesc: "U-shaped mild steel structural channels.", apps: "Industrial sheds, vehicle chassis, support brackets.", features: "High structural integrity, easy to machine.", supply: "Supplied in custom lengths for large-scale fabrication projects." },
-            { name: "GI Channel", shortDesc: "Galvanized channels for demanding environments.", apps: "Electrical conduits, corrosive environments.", features: "Weather-resistant, high load-bearing capacity.", supply: "Bulk procurement available for national infrastructure initiatives." }
+            {
+                "name": "MS / GI Channel",
+                "shortDesc": "C-shaped or U-shaped steel beams for structural support.",
+                "image": "/assets/ms-gi-channel.webp",
+                "specs": [
+                    {
+                        "label": "Material / Grade",
+                        "value": "IS 2062 E250 / E350"
+                    },
+                    {
+                        "label": "Size Range",
+                        "value": "75 x 40 mm to 400 x 100 mm"
+                    }
+                ],
+                "apps": "warehouses, machinery frames, vehicle chassis, building columns",
+                "features": "heavy load-bearing capacity, bending resistance, precise dimensions"
+            }
         ]
     },
     {
-        name: "Bars & Reinforcement",
-        desc: "The backbone of modern construction, ensuring structural safety and longevity.",
-        image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop",
-        items: [
-            { name: "TMT Bars", shortDesc: "Thermo Mechanically Treated bars with superior ductility.", apps: "High-rise buildings, dams, concrete reinforcement.", features: "Earthquake resistant, high thermal stability.", supply: "Procured directly from top-tier primary manufacturers." },
-            { name: "Round Bars", shortDesc: "Smooth, cylindrical metal bars.", apps: "Machining, automotive components, shafts.", features: "Uniform grain structure, precise dimensions.", supply: "Available in various grades for immediate bulk distribution." },
-            { name: "Square Bars", shortDesc: "Solid square steel sections.", apps: "Cranes, agricultural equipment, ornamental work.", features: "High yield strength, easily weldable.", supply: "Consistent supply chain maintaining ready inventory." }
+        "name": "Steel Bars & Long Products",
+        "desc": "High-yield reinforcing bars and solid sections for engineering, forging, and structural frameworks.",
+        "image": "/assets/tmt_bar.jpg",
+        "items": [
+            {
+                "name": "TMT Bars",
+                "shortDesc": "High-strength reinforcement steel bars for concrete structures.",
+                "image": "/assets/tmt_bar.jpg",
+                "specs": [
+                    {
+                        "label": "Grades",
+                        "value": "Fe 500, Fe 500D, Fe 550, Fe 550D, Fe 600, CRS available"
+                    },
+                    {
+                        "label": "Size Range",
+                        "value": "8 mm to 40 mm diameter"
+                    }
+                ],
+                "apps": "residential buildings, high-rises, dams, bridges, highways",
+                "features": "excellent ductility, earthquake resistance, high fatigue strength, superior bonding with concrete"
+            },
+            {
+                "name": "MS / GI Round Bars",
+                "shortDesc": "Solid cylindrical metal bars for machining and structural jobs.",
+                "image": "/assets/ms-gi-round-bars.webp",
+                "specs": [
+                    {
+                        "label": "Material / Grade (MS)",
+                        "value": "MS (EN8, EN9, IS 2062)"
+                    },
+                    {
+                        "label": "Specification (GI)",
+                        "value": "GI zinc coated"
+                    },
+                    {
+                        "label": "Size Range",
+                        "value": "6 mm to 200 mm diameter"
+                    }
+                ],
+                "apps": "forging, bright bars, fasteners, grills, shafts, axles",
+                "features": "smooth surface finish, easy to machine and weld, uniform dimensions"
+            },
+            {
+                "name": "MS / GI Square Bars",
+                "shortDesc": "Solid square-shaped steel bars for heavy-duty applications.",
+                "image": "/assets/ms-gi-square-bars.jpeg",
+                "specs": [
+                    {
+                        "label": "Material / Grade",
+                        "value": "Standard Mild Steel / Galvanized Steel"
+                    },
+                    {
+                        "label": "Size Range",
+                        "value": "6 x 6 mm to 100 x 100 mm"
+                    }
+                ],
+                "apps": "industrial gratings, window grills, gates, agricultural implements, machinery parts",
+                "features": "high impact resistance, structural rigidity, clean geometric edges"
+            }
         ]
     },
     {
-        name: "Flat Products",
-        desc: "Hot-rolled steel products vital for heavy manufacturing and industrial applications.",
-        image: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=800&auto=format&fit=crop",
-        items: [
-            { name: "HR Plates", shortDesc: "Heavy-duty hot-rolled steel plates.", apps: "Shipbuilding, pressure vessels, heavy machinery.", features: "High durability, excellent load distribution.", supply: "Imported and domestically sourced in customized dimensions." },
-            { name: "HR Sheets", shortDesc: "Thinner gauge hot-rolled flat steel.", apps: "Automotive bodies, storage tanks, pipes.", features: "Formability, consistent thickness.", supply: "Supplied in standard sheets or custom-cut formats." },
-            { name: "HR Coils", shortDesc: "Continuously rolled steel supplied in coil form.", apps: "Cold rolling, welded pipe manufacturing.", features: "Cost-effective bulk processing material.", supply: "Logistics optimized for safe transport of heavy coils." }
+        "name": "Wires, Nails & Fasteners",
+        "desc": "Precision-drawn wire products, binding materials, and heavy-duty industrial fasteners.",
+        "image": "/assets/ms-wire-rod.jpg",
+        "items": [
+            {
+                "name": "MS Wire Rod",
+                "shortDesc": "Semi-finished rolled steel product used as raw material for wire drawing.",
+                "image": "/assets/ms-wire-rod.jpg",
+                "specs": [
+                    {
+                        "label": "Grades",
+                        "value": "SAE 1006, SAE 1008, SAE 1010, medium/high carbon"
+                    },
+                    {
+                        "label": "Size Range",
+                        "value": "5.5 mm to 16 mm coil form"
+                    }
+                ],
+                "apps": "wire drawing, nail manufacturing, electrode production, auto-components",
+                "features": "uniform chemical composition, excellent drawability, minimal surface defects"
+            },
+            {
+                "name": "MS HB Wire",
+                "shortDesc": "Hard drawn bright wire drawn from wire rods without heat treatment.",
+                "image": "/assets/ms-hb-wire.webp",
+                "specs": [
+                    {
+                        "label": "Material / Grade",
+                        "value": "Low carbon steel"
+                    },
+                    {
+                        "label": "Size Range",
+                        "value": "1.2 mm to 6.0 mm (8 to 18 SWG)"
+                    }
+                ],
+                "apps": "welded wire mesh, bucket handles, iron nails, conveyor belts, display racks",
+                "features": "high tensile strength, smooth bright finish, rigid structure"
+            },
+            {
+                "name": "GI Wire",
+                "shortDesc": "Galvanized steel wire coated with zinc for rust protection.",
+                "image": "/assets/gl-wire.jpg",
+                "specs": [
+                    {
+                        "label": "Zinc Coating",
+                        "value": "commercial 30–60 g/m², heavy 200–300 g/m²"
+                    },
+                    {
+                        "label": "Size Range",
+                        "value": "0.9 mm to 4.0 mm"
+                    }
+                ],
+                "apps": "fencing, barbed wire, cable armoring, netting, tying",
+                "features": "rust protection, long lifespan, uniform zinc adhesion"
+            },
+            {
+                "name": "MS Binding Wire",
+                "shortDesc": "Soft annealed mild steel wire used for tying rebar.",
+                "image": "/assets/ms-binding-wire.jpg",
+                "specs": [
+                    {
+                        "label": "Material / Grade",
+                        "value": "Soft annealed mild steel, low carbon"
+                    },
+                    {
+                        "label": "Size Range",
+                        "value": "0.91 mm to 1.22 mm (20 SWG to 18 SWG)"
+                    }
+                ],
+                "apps": "tying TMT bars, bundling cargo, packaging",
+                "features": "highly flexible, easy to twist, uniform softness"
+            },
+            {
+                "name": "MS Wire Nail",
+                "shortDesc": "Standard industrial and construction nails made from hard-drawn steel wire.",
+                "image": "/assets/ms-wire-nail.jpg",
+                "specs": [
+                    {
+                        "label": "Material / Grade",
+                        "value": "High-quality hard drawn mild steel"
+                    },
+                    {
+                        "label": "Size Range",
+                        "value": "0.5 inches to 6 inches"
+                    }
+                ],
+                "apps": "carpentry, wooden packaging, building construction, general fastening",
+                "features": "sharp diamond point, strong countersunk heads, high bending resistance"
+            },
+            {
+                "name": "MS Nut & Bolt",
+                "shortDesc": "Industrial fasteners used to mechanically join objects.",
+                "image": "/assets/ms-nut-and-bolt.jpg",
+                "specs": [
+                    {
+                        "label": "Grades",
+                        "value": "4.6, 4.8, 5.6, 8.8, high tensile available"
+                    },
+                    {
+                        "label": "Size Range",
+                        "value": "M4 to M64, lengths as per client specification"
+                    },
+                    {
+                        "label": "Finishes",
+                        "value": "plain / black-phosphated / galvanized finishes"
+                    }
+                ],
+                "apps": "heavy machinery, structural steel fabrication, automotive, infrastructure projects",
+                "features": "high thread precision, excellent shear strength"
+            }
         ]
     },
     {
-        name: "Roofing & Cladding",
-        desc: "Durable and weather-resistant roofing solutions for industrial and commercial structures.",
-        image: "https://images.unsplash.com/photo-1632341270258-295e8bc1a316?q=80&w=800&auto=format&fit=crop",
-        items: [
-            { name: "PPGI Sheets", shortDesc: "Pre-Painted Galvanized Iron sheets.", apps: "Industrial roofing, warehouse cladding.", features: "Aesthetic finish, superior corrosion resistance.", supply: "Wide range of standard RAL colors available in bulk." },
-            { name: "PPGL Sheets", shortDesc: "Pre-Painted Galvalume sheets with aluminum-zinc coating.", apps: "High-corrosion industrial zones, modern architecture.", features: "Heat reflective, exceptional durability.", supply: "Sourced for large-scale infrastructural roofing projects." },
-            { name: "GC Sheets", shortDesc: "Galvanized Corrugated sheets for traditional roofing.", apps: "Agricultural sheds, temporary shelters.", features: "High structural rigidity, cost-efficient.", supply: "Readily available for rapid deployment across India." }
+        "name": "Primary Raw Materials & Smelting Inputs",
+        "desc": "High-grade ore reductions, coal, and metallurgical inputs for electric and induction furnaces.",
+        "image": "/assets/sponge-iron-dri.jpg",
+        "items": [
+            {
+                "name": "Sponge Iron / DRI",
+                "shortDesc": "Premium raw material made by direct reduction of iron ore.",
+                "image": "/assets/sponge-iron-dri.jpg",
+                "specs": [
+                    {
+                        "label": "Fe Metallic",
+                        "value": "80% to 84% min"
+                    },
+                    {
+                        "label": "Total Fe",
+                        "value": "90% to 92% min"
+                    },
+                    {
+                        "label": "Metallization",
+                        "value": "88% to 92%"
+                    },
+                    {
+                        "label": "Carbon content",
+                        "value": "0.15% to 0.25%"
+                    }
+                ],
+                "apps": "EAF and induction furnaces for steel production",
+                "features": "low sulfur and phosphorus, uniform size, excellent scrap substitute"
+            },
+            {
+                "name": "Coal",
+                "shortDesc": "Industrial coal for power generation, heating, and smelting.",
+                "image": "/assets/coal.jpg",
+                "specs": [
+                    {
+                        "label": "Types",
+                        "value": "coking coal, non-coking / thermal coal, anthracite coal"
+                    },
+                    {
+                        "label": "Thermal coal GCV",
+                        "value": "3,000 kcal/kg to 6,500+ kcal/kg"
+                    },
+                    {
+                        "label": "Anthracite",
+                        "value": "high fixed carbon 85%+, low volatile matter"
+                    }
+                ],
+                "apps": "steel plants, cement factories, power plants, brick kilns",
+                "features": "suitable for metallurgical coke making, heating, filtration, and industrial energy use"
+            }
         ]
     },
     {
-        name: "Wires & Fasteners",
-        desc: "Essential connecting, binding, and fastening materials for diverse industrial uses.",
-        image: "https://images.unsplash.com/photo-1620310243452-f67341ea22e5?q=80&w=800&auto=format&fit=crop",
-        items: [
-            { name: "Wire Rod", shortDesc: "Hot-rolled metal wire, typically supplied in coils.", apps: "Wire drawing, mesh manufacturing, fasteners.", features: "Excellent drawability, uniform metallurgical properties.", supply: "Available in low, medium, and high carbon grades." },
-            { name: "HB Wire", shortDesc: "Hard Bright wire with a smooth finish.", apps: "Nail manufacturing, fencing, hangers.", features: "High tensile strength, clean surface.", supply: "Consistent monthly supply allocations available for regular buyers." },
-            { name: "GI Wire", shortDesc: "Galvanized wire coated for rust prevention.", apps: "Chain link fencing, heavy-duty binding.", features: "Weather-proof, highly pliable.", supply: "Procured in massive volumes for agricultural and industrial sectors." },
-            { name: "Binding Wire", shortDesc: "Soft annealed wire for tying applications.", apps: "Tying TMT bars in RCC construction.", features: "Highly flexible, resistant to breakage.", supply: "Standardized packaging for efficient site distribution." },
-            { name: "Wire Nails", shortDesc: "Standard steel nails for general fastening.", apps: "Woodworking, packaging, construction.", features: "Sharp point, strong shank.", supply: "Bulk packaged in standardized weights for wholesale." },
-            { name: "Nuts & Bolts", shortDesc: "Industrial grade threaded fasteners.", apps: "Steel fabrication, machinery assembly.", features: "Precision threaded, high shear strength.", supply: "Available in various metric and imperial sizes." }
+        "name": "Recycled Metals & By-Products",
+        "desc": "High-yield recyclable scrap and iron-rich recovered by-products for secondary smelting.",
+        "image": "/assets/Iron-Scrap.jpg",
+        "items": [
+            {
+                "name": "Iron Scrap",
+                "shortDesc": "Recyclable ferrous metal from industrial waste, demolition, obsolete machinery.",
+                "image": "/assets/Iron-Scrap.jpg",
+                "specs": [
+                    {
+                        "label": "Classifications",
+                        "value": "HMS 1, HMS 2, LMS, shredded scrap"
+                    }
+                ],
+                "apps": "remelting in induction and electric arc furnaces",
+                "features": "cost-effective, eco-friendly, high yield"
+            },
+            {
+                "name": "Other Metal Scrap",
+                "shortDesc": "Non-ferrous and specialized metal scrap for secondary smelting.",
+                "image": "/assets/other-metal-scrap.jpg",
+                "specs": [
+                    {
+                        "label": "Types",
+                        "value": "aluminum scrap, copper scrap, stainless steel scrap, brass scrap"
+                    }
+                ],
+                "apps": "foundries, alloy manufacturing, extrusion plants, refining units",
+                "features": "suitable for recycling, remelting, and secondary production"
+            },
+            {
+                "name": "Slag Iron",
+                "shortDesc": "Iron recovered from metallurgical slag.",
+                "image": "/assets/iron-slag.jpg",
+                "specs": [
+                    {
+                        "label": "Fe content",
+                        "value": "40% to 60%"
+                    }
+                ],
+                "apps": "charging in furnaces, cement manufacturing, road base construction",
+                "features": "economical, environmentally sound recycling option"
+            }
         ]
     },
     {
-        name: "Raw Materials",
-        desc: "Core inputs driving the steel smelting, power, and manufacturing sectors.",
-        image: "https://images.unsplash.com/photo-1587582423116-ec07293f0395?q=80&w=800&auto=format&fit=crop",
-        items: [
-            { name: "Sponge Iron", shortDesc: "Direct reduced iron used in steelmaking.", apps: "Electric arc furnaces, induction furnaces.", features: "High metallization, low tramp elements.", supply: "Sourced from reliable domestic and international plants." },
-            { name: "Coal", shortDesc: "Industrial grade thermal and coking coal.", apps: "Power plants, steel manufacturing, cement kilns.", features: "High calorific value, optimized ash content.", supply: "Large-scale import and domestic procurement capabilities." },
-            { name: "Billets", shortDesc: "Semi-finished solid steel blocks.", apps: "Rolling into TMT bars, wire rods, and structural shapes.", features: "Uniform chemistry, defect-free surface.", supply: "Traded in massive volumes for secondary steel producers." },
-            { name: "Ingots", shortDesc: "Cast steel shapes for further processing.", apps: "Forging, heavy machinery parts.", features: "Solidified structural integrity.", supply: "Sourced to match specific client metallurgical requirements." }
+        "name": "Flat Steel Products (Hot Rolled)",
+        "desc": "Hot-rolled flat products, plates, and coils designed for heavy fabrication, transport, and manufacturing.",
+        "image": "/assets/HR-Coil.jpg",
+        "items": [
+            {
+                "name": "HR Plates",
+                "shortDesc": "Thick flat steel plates for high-load structural use.",
+                "image": "/assets/HR-Plate.jpg",
+                "specs": [
+                    {
+                        "label": "Grades",
+                        "value": "IS 2062 (E250A, E250BR, E350), ASTM A36"
+                    },
+                    {
+                        "label": "Thickness",
+                        "value": "5.0 mm to 110 mm"
+                    },
+                    {
+                        "label": "Standard widths",
+                        "value": "1250 mm, 1500 mm, 2000 mm, 2500 mm"
+                    }
+                ],
+                "apps": "heavy machinery, ship hulls, bridges, pressure vessels, storage tanks",
+                "features": "high tensile strength, excellent weldability, exceptional load-bearing capacity"
+            },
+            {
+                "name": "HR Coils",
+                "shortDesc": "Hot rolled flat steel wound into industrial coils.",
+                "image": "/assets/HR-Coil.jpg",
+                "specs": [
+                    {
+                        "label": "Grades",
+                        "value": "IS 2062 Grade A/B, SAE 1006 / 1008, Tata Astrum"
+                    },
+                    {
+                        "label": "Thickness",
+                        "value": "1.6 mm to 20 mm"
+                    },
+                    {
+                        "label": "Width",
+                        "value": "900 mm to 2500 mm"
+                    }
+                ],
+                "apps": "pipe and tube manufacturing, automotive chassis, railway coaches, roll-forming",
+                "features": "high malleability, consistent chemical composition, structural integrity"
+            },
+            {
+                "name": "HR Sheets",
+                "shortDesc": "Hot rolled steel cut into flat rectangular sheets.",
+                "image": "/assets/HR-Sheet.jpg",
+                "specs": [
+                    {
+                        "label": "Grades",
+                        "value": "IS 2062 E250, IS 1079"
+                    },
+                    {
+                        "label": "Thickness",
+                        "value": "1.2 mm to 5.0 mm"
+                    },
+                    {
+                        "label": "Standard lengths",
+                        "value": "2500 mm, 4000 mm, 4500 mm, cut-to-length options"
+                    }
+                ],
+                "apps": "agricultural equipment, bus bodies, fabrication, industrial containers",
+                "features": "smooth finish, dimensional accuracy, easy formability"
+            }
         ]
     },
     {
-        name: "Scrap Materials",
-        desc: "Crucial recyclable resources supporting the circular industrial economy.",
-        image: "https://images.unsplash.com/photo-1530982011887-3cc11cc85693?q=80&w=800&auto=format&fit=crop",
-        items: [
-            { name: "Iron Scrap", shortDesc: "Heavy melting scrap (HMS) and shredded iron.", apps: "Recycling in steel melting shops.", features: "High yield, sorted and processed.", supply: "Extensive import operations from global scrap yards." },
-            { name: "Metal Scrap", shortDesc: "Non-ferrous and mixed metallic scrap.", apps: "Alloy manufacturing, secondary refining.", features: "Economical raw material substitute.", supply: "Handled through specialized logistics for bulk trading." },
-            { name: "Slag Iron", shortDesc: "By-product containing recoverable iron content.", apps: "Cement manufacturing, aggregate base.", features: "Cost-effective, environmentally sustainable.", supply: "Sourced directly from major integrated steel plants." }
+        "name": "Roofing & Cladding Solutions",
+        "desc": "Corrugated and color-coated steel sheets offering premium weather protection and architectural elegance.",
+        "image": "/assets/color-coated-roofing-sheet.jpg",
+        "items": [
+            {
+                "name": "Color-Coated Roofing Sheets",
+                "shortDesc": "Pre-painted galvanized iron or galvalume sheets for weather protection and aesthetics.",
+                "image": "/assets/color-coated-roofing-sheet.jpg",
+                "specs": [
+                    {
+                        "label": "Substrate",
+                        "value": "Cold-rolled galvanized or galvalume, AZ-150 coating"
+                    },
+                    {
+                        "label": "Thickness",
+                        "value": "0.30 mm to 0.80 mm"
+                    },
+                    {
+                        "label": "Profiles",
+                        "value": "trapezoidal, corrugated, tile-profile"
+                    },
+                    {
+                        "label": "Standard widths",
+                        "value": "3.5 feet, 4 feet"
+                    },
+                    {
+                        "label": "Colors",
+                        "value": "Royal Blue, Brick Red, Caulfield Green, Off-White, Slate Grey"
+                    }
+                ],
+                "apps": "warehouses, factory sheds, commercial complexes, residential roofing",
+                "features": "anti-corrosion, UV-resistant paint, heat reflectivity, leak resistance"
+            },
+            {
+                "name": "GC Sheets",
+                "shortDesc": "Galvanized corrugated sheets for economical weather protection.",
+                "image": "/assets/gc-sheets.jpg",
+                "specs": [
+                    {
+                        "label": "Material / Brand",
+                        "value": "galvanized steel, branded options like JSW Vishwas / Tata Galvano"
+                    },
+                    {
+                        "label": "Thickness",
+                        "value": "0.35 mm to 0.60 mm"
+                    },
+                    {
+                        "label": "Standard sizes",
+                        "value": "3 or 4 feet width; 8, 10, 12, 14 feet length"
+                    },
+                    {
+                        "label": "Zinc coating",
+                        "value": "80 GSM to 120 GSM"
+                    }
+                ],
+                "apps": "low-cost housing, site boundaries, barricading, agricultural sheds, rural roofing",
+                "features": "durable, rust resistant, cost-efficient, ISI compliant"
+            }
         ]
     },
     {
-        name: "Cement",
-        desc: "Foundational binding materials for all infrastructural developments.",
-        image: "https://images.unsplash.com/photo-1518683526645-316886e37eb6?q=80&w=800&auto=format&fit=crop",
-        items: [
-            { name: "OPC Cement", shortDesc: "Ordinary Portland Cement (43 & 53 Grade).", apps: "High-strength concrete, pre-cast items, commercial buildings.", features: "Fast setting time, high compressive strength.", supply: "Wholesale distribution from premium national brands." },
-            { name: "PPC Cement", shortDesc: "Portland Pozzolana Cement.", apps: "Mass concrete work, marine structures, plastering.", features: "Sulfate resistant, lower heat of hydration.", supply: "Bulk transportation network for mega-project sites." }
+        "name": "Semi-Finished Steel Products",
+        "desc": "Continuous-cast solid steel bars and blocks used for rolling mills and forging.",
+        "image": "/assets/ms-billet.jpg",
+        "items": [
+            {
+                "name": "MS Billet",
+                "shortDesc": "Continuous-cast solid steel bars with square cross-sections used for rolling mills.",
+                "image": "/assets/ms-billet.jpg",
+                "specs": [
+                    {
+                        "label": "Grades",
+                        "value": "IS 2830, IS 2831, low carbon / medium carbon grades"
+                    },
+                    {
+                        "label": "Standard sizes",
+                        "value": "100 x 100 mm, 125 x 125 mm, 150 x 150 mm"
+                    },
+                    {
+                        "label": "Lengths",
+                        "value": "6 m to 12 m"
+                    }
+                ],
+                "apps": "re-rolling mills for TMT bars, wire rods, structural steel sections",
+                "features": "uniform grain structure, no internal pipe defects or blowholes, excellent surface smoothness"
+            },
+            {
+                "name": "MS Ingot",
+                "shortDesc": "Solid steel blocks cast in molds for forging and smelting.",
+                "image": "/assets/ms-ingot.jpg",
+                "specs": [
+                    {
+                        "label": "Material / Grade",
+                        "value": "commercial grade mild steel, high-carbon steel variants"
+                    },
+                    {
+                        "label": "Size / weight",
+                        "value": "custom tapered rectangular dimensions, typically 100 kg to 500+ kg"
+                    }
+                ],
+                "apps": "forging industries, small re-rolling mills, bars, plates, forged components",
+                "features": "cost-effective, easy to melt, suitable for heavy forging tasks"
+            }
+        ]
+    },
+    {
+        "name": "Bulk Construction Binding Materials",
+        "desc": "Premium hydraulic building binders for concrete reinforcement, masonry, and architectural structures.",
+        "image": "/assets/cement.webp",
+        "items": [
+            {
+                "name": "Cement",
+                "shortDesc": "Premium hydraulic building binder for structural stability.",
+                "image": "/assets/cement.webp",
+                "specs": [
+                    {
+                        "label": "Types",
+                        "value": "OPC 53 Grade, OPC 43 Grade, PPC"
+                    },
+                    {
+                        "label": "OPC 53 Spec",
+                        "value": "53 MPa min, governed by IS 12269"
+                    },
+                    {
+                        "label": "OPC 43 Spec",
+                        "value": "governed by IS 8112"
+                    },
+                    {
+                        "label": "PPC Spec",
+                        "value": "fly ash blend, governed by IS 1489"
+                    },
+                    {
+                        "label": "Packaging",
+                        "value": "50 kg moisture-resistant PP woven sacks"
+                    }
+                ],
+                "apps": "RCC frameworks, masonry mortar, plastering, marine and dam foundations, precast concrete",
+                "features": "high bonding strength, sulfate resistance, chemical resistance, good workability"
+            }
         ]
     }
 ];
 
-const industriesServed = [
+export const industriesServed = [
     { name: "Construction", desc: "Supplying TMT bars, cement, and structural steel to residential and commercial real estate developers.", products: "TMT Bars, Cement, Binding Wire, Structural Steel", challenges: "Inconsistent material quality and delayed site deliveries.", benefits: "Just-in-time delivery and verified material testing certificates.", icon: Building2 },
     { name: "Infrastructure", desc: "Providing massive volumes of raw materials for roads, bridges, and dam projects.", products: "HR Plates, Heavy Structural Steel, Bitumen/Coal", challenges: "Handling massive volume requirements on strict timelines.", benefits: "Financial strength to execute massive orders and pan-India logistics.", icon: MapPin },
     { name: "Manufacturing", desc: "Ensuring a steady flow of flat products and billets to secondary manufacturers.", products: "HR Sheets, Coils, Billets, Wire Rods", challenges: "Fluctuating raw material prices and supply chain gaps.", benefits: "Strategic procurement and long-term price hedging support.", icon: Factory },
@@ -172,7 +600,7 @@ const faqs = [
 const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } };
 const staggerContainer = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } };
 
-const SectionReveal = ({ children, className = "" }) => (
+export const SectionReveal = ({ children, className = "" }) => (
     <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className={className}>
         {children}
     </motion.div>
@@ -266,10 +694,11 @@ const Button = ({ children, primary = false, onClick, className = "" }) => {
     return <button onClick={onClick} className={`${baseStyle} ${primary ? primaryStyle : secondaryStyle} ${className}`}>{children}</button>;
 };
 
-const PageHeader = ({ title, subtitle, bgImage }) => (
+export const PageHeader = ({ title, subtitle, bgImage }) => (
     <div className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-slate-900 overflow-hidden">
         <div className="absolute inset-0 opacity-30">
-            <img src={bgImage || "/assets/cta_banner.png"} alt="Background" className="w-full h-full object-cover" />
+            <img src={bgImage || "/assets/cta_banner_mobile.jpg"} alt="Background Mobile" className="w-full h-full object-cover lg:hidden" />
+            <img src={bgImage || "/assets/cta_banner.png"} alt="Background Desktop" className="hidden lg:block w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
@@ -305,10 +734,18 @@ const Home = ({ setPage }) => {
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-stone-50">
             {/* NEW LOGO + ACCORDION HERO SECTION */}
-            <div className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#F8F9FA] pt-32 pb-16">
+            <div className="relative min-h-[70vh] lg:min-h-[90vh] flex items-center overflow-hidden pt-24 pb-12 lg:pt-32 lg:pb-16">
                 
+                {/* Dynamic Background Image based on active card */}
+                <div 
+                    className="absolute inset-0 transition-all duration-1000 ease-in-out bg-cover bg-center z-0" 
+                    style={{ backgroundImage: `url(${heroAccordionItems[activeIndex].imageUrl})` }}
+                >
+                    <div className="absolute inset-0 bg-black/40"></div>
+                </div>
+
                 <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-                    <div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-8">
+                    <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
                         
                         {/* Left side content (Logo & Text) */}
                         <div className="w-full lg:w-[45%] flex flex-col items-center sm:items-start text-center sm:text-left">
@@ -317,20 +754,20 @@ const Home = ({ setPage }) => {
                                 <img 
                                     src="/assets/peacockillustration.png" 
                                     alt="Raj Nandini Peacock Logo" 
-                                    className="w-56 md:w-72 lg:w-[22rem] h-auto mb-10 object-contain drop-shadow-sm" 
+                                    className="w-48 md:w-72 lg:w-[22rem] h-auto mb-6 lg:mb-10 object-contain drop-shadow-lg brightness-0 invert" 
                                     onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/500x400/f8f9fa/b58d54?text=Peacock+Logo"; }} 
                                 />
                             </motion.div>
                             
-                            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} className="w-12 h-[2px] bg-[#B58D54] mb-8"></motion.div>
+                            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} className="w-12 h-[2px] bg-[#B58D54] mb-4 lg:mb-8"></motion.div>
                             
-                            <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="text-xl md:text-2xl font-bold tracking-[0.25em] text-slate-800 uppercase leading-[2]">
+                            <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="text-xl md:text-2xl font-bold tracking-[0.25em] text-white uppercase leading-[2] drop-shadow-md">
                                 Global Sourcing.<br/>Pan India Supply.
                             </motion.h1>
                             
                             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
-                                <button onClick={() => setPage('products')} className="mt-12 bg-[#0F172A] hover:bg-slate-800 text-white px-8 py-4 rounded-full flex items-center justify-center gap-4 uppercase tracking-widest text-sm font-semibold transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1">
-                                    Explore Products <ArrowRight className="w-4 h-4 text-[#B58D54]" />
+                                <button onClick={() => setPage('products')} className="mt-6 lg:mt-12 bg-[#B58D54] hover:bg-[#A37B42] text-white px-8 py-4 rounded-full flex items-center justify-center gap-4 uppercase tracking-widest text-sm font-semibold transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1">
+                                    Explore Products <ArrowRight className="w-4 h-4 text-white" />
                                 </button>
                             </motion.div>
                         </div>
@@ -350,9 +787,9 @@ const Home = ({ setPage }) => {
                                         <div
                                             key={item.id}
                                             className={`
-                                                relative h-[350px] md:h-[450px] rounded-[1.5rem] overflow-hidden cursor-pointer shrink-0
+                                                relative h-[250px] sm:h-[300px] md:h-[450px] rounded-[1.5rem] overflow-hidden cursor-pointer shrink-0
                                                 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] shadow-lg
-                                                ${isActive ? 'w-[200px] sm:w-[260px] md:w-[360px]' : 'w-[45px] sm:w-[60px] md:w-[70px] hover:w-[50px] sm:hover:w-[70px] md:hover:w-[80px]'}
+                                                ${isActive ? 'w-[180px] sm:w-[220px] md:w-[360px]' : 'w-[40px] sm:w-[50px] md:w-[70px] hover:w-[50px] sm:hover:w-[60px] md:hover:w-[80px]'}
                                             `}
                                             onMouseEnter={() => setActiveIndex(index)}
                                             onClick={() => setActiveIndex(index)}
@@ -478,6 +915,13 @@ const Home = ({ setPage }) => {
 const Products = ({ setPage }) => {
     const [activeCategory, setActiveCategory] = useState(0);
     const [selectedProduct, setSelectedProduct] = useState(null);
+    const [productPage, setProductPage] = useState(1);
+    const ITEMS_PER_PAGE = 8;
+
+    // Reset pagination when category changes
+    useEffect(() => {
+        setProductPage(1);
+    }, [activeCategory]);
 
     // Prevent background scrolling when modal is open
     useEffect(() => {
@@ -492,8 +936,27 @@ const Products = ({ setPage }) => {
     // Helper to generate formatted HTML if customHTML is not provided
     const getProductHTML = (item) => {
         if (item.customHTML) return item.customHTML;
+        
+        let specsHTML = '';
+        if (item.specs && item.specs.length > 0) {
+            specsHTML = `
+                <div>
+                    <h4 style="font-size: 0.875rem; font-weight: 700; color: #0F172A; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid #E2E8F0; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">Specifications</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 0.5rem;">
+                        ${item.specs.map(spec => `
+                            <div>
+                                <span style="font-size: 0.75rem; font-weight: 700; color: #64748B; text-transform: uppercase; tracking: 0.05em; display: block;">${spec.label}</span>
+                                <span style="color: #334155; font-size: 0.95rem; font-weight: 500;">${spec.value}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+        
         return `
             <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                ${specsHTML}
                 <div>
                     <h4 style="font-size: 0.875rem; font-weight: 700; color: #0F172A; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid #E2E8F0; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">Applications</h4>
                     <p style="color: #475569; line-height: 1.6;">${item.apps || 'N/A'}</p>
@@ -502,10 +965,11 @@ const Products = ({ setPage }) => {
                     <h4 style="font-size: 0.875rem; font-weight: 700; color: #0F172A; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid #E2E8F0; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">Key Features</h4>
                     <p style="color: #475569; line-height: 1.6;">${item.features || 'N/A'}</p>
                 </div>
+                ${item.supply ? `
                 <div>
                     <h4 style="font-size: 0.875rem; font-weight: 700; color: #0F172A; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid #E2E8F0; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">Supply Capability</h4>
-                    <p style="color: #475569; line-height: 1.6;">${item.supply || 'N/A'}</p>
-                </div>
+                    <p style="color: #475569; line-height: 1.6;">${item.supply}</p>
+                </div>` : ''}
             </div>
         `;
     };
@@ -514,7 +978,7 @@ const Products = ({ setPage }) => {
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-stone-50 min-h-screen">
             <PageHeader 
                 title="Procurement Catalog" 
-                subtitle="Detailed specifications of our bulk-supply capabilities across 8 industrial categories."
+                subtitle="Detailed specifications of our bulk-supply capabilities across 9 industrial categories."
             />
             
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
@@ -547,7 +1011,7 @@ const Products = ({ setPage }) => {
 
                         {/* PRODUCT CARDS GRID */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                            {comprehensiveProducts[activeCategory].items.map((item, idx) => {
+                            {comprehensiveProducts[activeCategory].items.slice((productPage - 1) * ITEMS_PER_PAGE, productPage * ITEMS_PER_PAGE).map((item, idx) => {
                                 // Fallback to category image if specific product image is missing
                                 const itemImage = item.image || comprehensiveProducts[activeCategory].image;
                                 
@@ -580,6 +1044,37 @@ const Products = ({ setPage }) => {
                                 );
                             })}
                         </div>
+
+                        {/* Pagination Controls */}
+                        {Math.ceil(comprehensiveProducts[activeCategory].items.length / ITEMS_PER_PAGE) > 1 && (
+                            <div className="mt-12 flex justify-center items-center gap-2">
+                                <button 
+                                    onClick={() => setProductPage(p => Math.max(1, p - 1))}
+                                    disabled={productPage === 1}
+                                    className="p-2 rounded-full border border-slate-200 text-slate-600 hover:bg-slate-100 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                >
+                                    <ChevronLeft size={20} />
+                                </button>
+                                
+                                {Array.from({ length: Math.ceil(comprehensiveProducts[activeCategory].items.length / ITEMS_PER_PAGE) }).map((_, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => setProductPage(i + 1)}
+                                        className={`w-10 h-10 rounded-full font-bold text-sm transition-all ${productPage === i + 1 ? 'bg-[#B58D54] text-white shadow-md' : 'bg-transparent text-slate-600 hover:bg-slate-100'}`}
+                                    >
+                                        {i + 1}
+                                    </button>
+                                ))}
+
+                                <button 
+                                    onClick={() => setProductPage(p => Math.min(Math.ceil(comprehensiveProducts[activeCategory].items.length / ITEMS_PER_PAGE), p + 1))}
+                                    disabled={productPage === Math.ceil(comprehensiveProducts[activeCategory].items.length / ITEMS_PER_PAGE)}
+                                    className="p-2 rounded-full border border-slate-200 text-slate-600 hover:bg-slate-100 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                >
+                                    <ChevronRight size={20} />
+                                </button>
+                            </div>
+                        )}
                     </motion.div>
                 </AnimatePresence>
 
@@ -643,267 +1138,6 @@ const Products = ({ setPage }) => {
                 </AnimatePresence>
 
             </div>
-        </motion.div>
-    );
-};
-
-const Industries = () => {
-    return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-white min-h-screen">
-             <PageHeader title="Industries We Serve" subtitle="Delivering vital raw materials to the sectors that build the economy." />
-             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-                <div className="grid md:grid-cols-2 gap-10">
-                    {industriesServed.map((industry, idx) => (
-                        <SectionReveal key={idx}>
-                            <div className="bg-stone-50 rounded-lg p-8 border border-slate-100 hover:border-stone-300 hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-                                <div className="flex items-center gap-4 mb-6 border-b border-slate-200 pb-6">
-                                    <div className="w-16 h-16 bg-slate-900 rounded-lg shadow-sm flex items-center justify-center text-white shrink-0">
-                                        <industry.icon size={28} />
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-slate-900 uppercase">{industry.name}</h3>
-                                </div>
-                                
-                                <div className="flex-grow space-y-4 text-sm text-slate-600">
-                                    <div>
-                                        <span className="font-bold text-slate-900 uppercase tracking-wider text-xs block mb-1">Industry Overview</span>
-                                        <p>{industry.desc}</p>
-                                    </div>
-                                    <div>
-                                        <span className="font-bold text-slate-900 uppercase tracking-wider text-xs block mb-1">Key Products Supplied</span>
-                                        <p className="font-semibold text-stone-600">{industry.products}</p>
-                                    </div>
-                                    <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-200 mt-4">
-                                        <div>
-                                            <span className="font-bold text-slate-900 uppercase tracking-wider text-xs block mb-1 text-red-600/80">Challenges Solved</span>
-                                            <p>{industry.challenges}</p>
-                                        </div>
-                                        <div>
-                                            <span className="font-bold text-slate-900 uppercase tracking-wider text-xs block mb-1 text-green-600/80">Our Value</span>
-                                            <p>{industry.benefits}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </SectionReveal>
-                    ))}
-                </div>
-             </div>
-        </motion.div>
-    );
-};
-
-const ImportExport = () => {
-    return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-stone-50 min-h-screen">
-            <PageHeader title="Import & Export Operations" subtitle="Bridging global markets with seamless international trade operations." bgImage="https://images.unsplash.com/photo-1551281476-eb34676106e5?q=80&w=2000&auto=format&fit=crop" />
-            
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-                
-                <SectionReveal className="text-center max-w-4xl mx-auto mb-20">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-6 uppercase">Global Sourcing & International Procurement</h2>
-                    <p className="text-lg text-slate-600 leading-relaxed">
-                        {COMPANY_NAME} operates a highly specialized Import & Export division. We possess the regulatory expertise, financial bandwidth, and global partnerships necessary to facilitate massive cross-border trade of industrial raw materials, finished steel products, and metal scrap.
-                    </p>
-                </SectionReveal>
-
-                <div className="grid lg:grid-cols-2 gap-12 mb-20">
-                    <SectionReveal className="bg-white p-10 border border-slate-200 rounded-lg shadow-sm">
-                        <div className="flex items-center gap-4 mb-6">
-                            <Anchor className="w-8 h-8 text-slate-900" />
-                            <h3 className="text-2xl font-bold text-slate-900 uppercase">Import Operations</h3>
-                        </div>
-                        <p className="text-slate-600 mb-6 leading-relaxed">
-                            We strategically source raw materials that are in high demand within the domestic manufacturing sector. By consolidating bulk import orders, we offer domestic clients price advantages they cannot achieve independently.
-                        </p>
-                        <ul className="space-y-3">
-                            <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-stone-500 mr-3 shrink-0" /> <span className="text-slate-700 font-medium">Heavy Melting Scrap (HMS) & Shredded Scrap</span></li>
-                            <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-stone-500 mr-3 shrink-0" /> <span className="text-slate-700 font-medium">High-grade Coking and Thermal Coal</span></li>
-                            <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-stone-500 mr-3 shrink-0" /> <span className="text-slate-700 font-medium">Specialized flat products and alloys</span></li>
-                        </ul>
-                    </SectionReveal>
-
-                    <SectionReveal className="bg-slate-900 p-10 rounded-lg shadow-sm text-white">
-                        <div className="flex items-center gap-4 mb-6">
-                            <Globe className="w-8 h-8 text-stone-400" />
-                            <h3 className="text-2xl font-bold uppercase">Export Operations</h3>
-                        </div>
-                        <p className="text-slate-300 mb-6 leading-relaxed font-light">
-                            Representing the quality of Indian manufacturing on the global stage, we export premium construction materials and finished steel products to emerging and established international markets.
-                        </p>
-                        <ul className="space-y-3">
-                            <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-stone-400 mr-3 shrink-0" /> <span className="text-slate-200 font-medium">TMT Bars & Structural Steel profiles</span></li>
-                            <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-stone-400 mr-3 shrink-0" /> <span className="text-slate-200 font-medium">Galvanized and Pre-painted Roofing Sheets</span></li>
-                            <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-stone-400 mr-3 shrink-0" /> <span className="text-slate-200 font-medium">Industrial Fasteners and Wire products</span></li>
-                        </ul>
-                    </SectionReveal>
-                </div>
-
-                {/* Operations Grid */}
-                <h3 className="text-2xl font-bold text-slate-900 uppercase text-center mb-10">Trade Management Excellence</h3>
-                <div className="grid md:grid-cols-4 gap-6">
-                    {[
-                        { title: "Documentation Support", desc: "End-to-end handling of Letters of Credit, Bills of Lading, Customs Clearance, and Certificates of Origin." },
-                        { title: "Logistics Coordination", desc: "Integration of freight forwarders, shipping lines, and port handling agents for seamless cargo movement." },
-                        { title: "Quality Assurance", desc: "Arranging pre-shipment inspections via internationally recognized agencies (SGS, Bureau Veritas)." },
-                        { title: "Bulk Trade Management", desc: "Expertise in handling both break-bulk vessel chartering and containerized cargo shipments." }
-                    ].map((item, idx) => (
-                        <SectionReveal key={idx} className="bg-white border border-slate-100 p-6 rounded-lg text-center">
-                            <h4 className="font-bold text-slate-900 uppercase text-sm mb-3">{item.title}</h4>
-                            <p className="text-slate-500 text-sm">{item.desc}</p>
-                        </SectionReveal>
-                    ))}
-                </div>
-            </div>
-        </motion.div>
-    );
-};
-
-const Infrastructure = () => {
-    return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-white min-h-screen">
-            <PageHeader title="Infrastructure & Network" subtitle="The operational backbone that guarantees scale, speed, and reliability." />
-            
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-                <SectionReveal className="text-center max-w-4xl mx-auto mb-20">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-6 uppercase">Operational Excellence</h2>
-                    <p className="text-lg text-slate-600 leading-relaxed">
-                        As a premier B2B trading house, our actual "factory" is our supply chain infrastructure. We have heavily invested in developing a robust vendor network, massive warehousing capabilities, and a pan-India distribution matrix to ensure order fulfillment happens without friction.
-                    </p>
-                </SectionReveal>
-
-                <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-                    <SectionReveal className="order-2 lg:order-1">
-                        <img src="/assets/global_network.png" alt="Logistics Fleet" className="w-full h-auto rounded-lg shadow-lg" />
-                    </SectionReveal>
-                    <SectionReveal className="order-1 lg:order-2">
-                        <h3 className="text-2xl font-bold text-slate-900 mb-6 uppercase">Distribution & Transportation</h3>
-                        <p className="text-slate-600 mb-6 leading-relaxed">
-                            With coverage spanning 25+ states, our logistics support is unmatched. We manage a complex network of heavy transport vehicles capable of moving long-length structural steel, heavy coils, and bulk cement safely to the most remote project sites across India.
-                        </p>
-                        <div className="space-y-4">
-                            <div className="flex items-center gap-4 p-4 bg-stone-50 border border-slate-100 rounded-lg">
-                                <Truck className="text-slate-900 w-6 h-6 shrink-0" />
-                                <div><span className="font-bold text-slate-900 block uppercase text-sm">Pan India Reach</span><span className="text-sm text-slate-500">Dedicated fleets for inter-state transit.</span></div>
-                            </div>
-                            <div className="flex items-center gap-4 p-4 bg-stone-50 border border-slate-100 rounded-lg">
-                                <Package className="text-slate-900 w-6 h-6 shrink-0" />
-                                <div><span className="font-bold text-slate-900 block uppercase text-sm">Bulk Supply Capability</span><span className="text-sm text-slate-500">Handling capacities measured in thousands of tonnes.</span></div>
-                            </div>
-                        </div>
-                    </SectionReveal>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-8">
-                    <SectionReveal className="bg-slate-900 p-10 rounded-lg text-white">
-                        <h3 className="text-2xl font-bold mb-4 uppercase">Warehousing Support</h3>
-                        <p className="text-slate-300 mb-6 font-light">
-                            Strategic stocking yards designed to hold massive inventory buffers. This allows us to protect our clients from sudden market shortages and price volatility. Our facilities are equipped with heavy-duty EOT cranes and forklifts for rapid loading and unloading.
-                        </p>
-                    </SectionReveal>
-                    
-                    <SectionReveal className="bg-stone-100 border border-slate-200 p-10 rounded-lg text-slate-900">
-                        <h3 className="text-2xl font-bold mb-4 uppercase">Primary Vendor Network</h3>
-                        <p className="text-slate-600 mb-6">
-                            Our strongest asset is our relationship with primary and secondary steel mills. By committing to large, regular off-takes, we secure priority dispatch and preferred pricing, passing these logistical and economic benefits directly to our clients.
-                        </p>
-                    </SectionReveal>
-                </div>
-            </div>
-        </motion.div>
-    );
-};
-
-const Gallery = () => {
-    const gallerySections = [
-        {
-            title: "Warehouse Operations",
-            img: "/assets/peacockillustration.png",
-            desc: "Extensive stocking of structural steel and TMT bars."
-        },
-        {
-            title: "Dispatch Activities",
-            img: "/assets/global_network.png",
-            desc: "Fleet loaded with bulk materials ready for pan-India transit."
-        },
-        {
-            title: "Project Deliveries",
-            img: "https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=800&auto=format&fit=crop",
-            desc: "On-site material drop-off for mega infrastructure projects."
-        },
-        {
-            title: "Industrial Materials Showcase",
-            img: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=800&auto=format&fit=crop",
-            desc: "High-grade HR plates and coils awaiting shipment."
-        },
-        {
-            title: "Supply Chain Operations",
-            img: "https://images.unsplash.com/photo-1504307651254-35680f356fce?q=80&w=800&auto=format&fit=crop",
-            desc: "Coordinating multi-modal transport for import cargo."
-        },
-        {
-            title: "Loading & Unloading",
-            img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop",
-            desc: "Heavy-duty crane operations handling massive structural beams."
-        }
-    ];
-
-    return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-stone-50 min-h-screen">
-             <PageHeader title="Operations Gallery" subtitle="Visual evidence of our scale, inventory capacity, and logistical execution." />
-             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {gallerySections.map((item, idx) => (
-                        <SectionReveal key={idx}>
-                            <div className="relative group rounded-lg overflow-hidden shadow-sm h-80 bg-slate-900 cursor-pointer">
-                                <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
-                                <div className="absolute bottom-0 left-0 p-6 w-full transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                                    <h3 className="text-xl font-bold text-white uppercase tracking-wider mb-2">{item.title}</h3>
-                                    <p className="text-slate-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">{item.desc}</p>
-                                </div>
-                            </div>
-                        </SectionReveal>
-                    ))}
-                </div>
-             </div>
-        </motion.div>
-    );
-};
-
-const Certifications = () => {
-    const certs = [
-        { title: "GST Registration", desc: "Fully compliant with Indian taxation frameworks for transparent billing.", icon: FileText },
-        { title: "IEC Registration", desc: "Import Export Code enabling authorized international trade operations.", icon: Globe },
-        { title: "MSME Registration", desc: "Recognized enterprise contributing to the national supply chain.", icon: Building2 },
-        { title: "ISO Certifications", desc: "Adherence to international Quality Management System standards.", icon: ShieldCheck },
-        { title: "Trade Licenses", desc: "Legally authorized to trade in industrial materials and scrap.", icon: Anchor },
-        { title: "Quality Standards", desc: "Only supplying materials with MTC (Mill Test Certificates).", icon: CheckCircle2 }
-    ];
-
-    return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-white min-h-screen">
-             <PageHeader title="Compliance & Certifications" subtitle="Operating with absolute transparency and rigorous legal compliance." />
-             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-                
-                <SectionReveal className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-6 uppercase">Business Compliance Commitment</h2>
-                    <p className="text-slate-600 text-lg">
-                        For B2B operations and government contracting, trust is built on paperwork. {COMPANY_NAME} maintains a flawless compliance record, ensuring our corporate partners face zero regulatory friction when procuring through us.
-                    </p>
-                </SectionReveal>
-                
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {certs.map((cert, idx) => (
-                        <SectionReveal key={idx}>
-                            <div className="p-8 bg-stone-50 rounded-lg border border-slate-100 hover:border-stone-300 transition-colors h-full">
-                                <cert.icon className="w-10 h-10 text-slate-900 mb-6" />
-                                <h3 className="font-bold text-slate-900 text-lg mb-3 uppercase">{cert.title}</h3>
-                                <p className="text-slate-600 text-sm leading-relaxed">{cert.desc}</p>
-                            </div>
-                        </SectionReveal>
-                    ))}
-                </div>
-             </div>
         </motion.div>
     );
 };
@@ -1034,93 +1268,104 @@ const Navbar = ({ currentPage, setPage }) => {
     const handleNavClick = (id) => {
         setPage(id);
         setMobileMenuOpen(false);
-        window.scrollTo(0, 0);
     };
 
     return (
-        <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-4 border-b border-slate-200' : 'bg-transparent py-6'}`}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-                <div className="flex items-center gap-4 cursor-pointer group" onClick={() => handleNavClick('home')}>
-                    <img src="/assets/logo.png" alt="Raj Nandini Logo" className="w-auto h-16 md:h-20 lg:h-24 object-contain" onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
-                    <div className="hidden items-center justify-center w-16 h-16 bg-[#B58D54] text-white rounded-full font-bold text-2xl">RN</div>
-                </div>
-
-                {/* Desktop Nav */}
-                <nav className="hidden xl:flex items-center gap-8">
-                    <div className="flex gap-6">
-                        {navigation.slice(0, 5).map((item) => (
-                            <button 
-                                key={item.id} 
-                                onClick={() => handleNavClick(item.id)}
-                                className={`text-sm font-bold uppercase tracking-wider transition-colors hover:text-[#B58D54] ${
-                                    currentPage === item.id 
-                                        ? 'text-[#B58D54]' 
-                                        : 'text-slate-600'
-                                }`}
-                            >
-                                {item.label}
-                            </button>
-                        ))}
-                        <div className="relative group">
-                            <button className="flex items-center text-sm font-bold uppercase tracking-wider transition-colors hover:text-[#B58D54] text-slate-600">
-                                Operations <ChevronDown size={14} className="ml-1" />
-                            </button>
-                            <div className="absolute top-full right-0 mt-2 w-56 bg-white rounded-md shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform translate-y-2 group-hover:translate-y-0 p-2">
-                                {navigation.slice(5, 9).map((item) => (
-                                    <button 
-                                        key={item.id} 
-                                        onClick={() => handleNavClick(item.id)}
-                                        className="block w-full text-left px-4 py-3 text-sm font-bold uppercase tracking-wider text-slate-700 hover:bg-stone-50 hover:text-stone-600 rounded transition-colors border-b border-slate-50 last:border-0"
-                                    >
-                                        {item.label}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
+        <>
+            <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled || mobileMenuOpen ? 'bg-white/95 backdrop-blur-xl shadow-sm py-4 border-b border-stone-200' : 'bg-transparent py-6'}`}>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center relative z-20">
+                    <div className="flex items-center gap-4 cursor-pointer group" onClick={() => handleNavClick('home')}>
+                        <img src="/assets/logo.png" alt="Raj Nandini Logo" className="w-auto h-16 md:h-20 lg:h-24 object-contain" onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
+                        <div className="hidden items-center justify-center w-16 h-16 bg-[#B58D54] text-white rounded-full font-bold text-2xl">RN</div>
                     </div>
-                    <Button primary onClick={() => handleNavClick('contact')} className="px-6 py-2 text-xs">
-                        RFQ / Contact
-                    </Button>
-                </nav>
 
-                {/* Mobile Menu Toggle */}
-                <button 
-                    className="xl:hidden p-2 rounded-md text-slate-900"
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                >
-                    {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-                </button>
-            </div>
-
-            {/* Mobile Menu */}
-            <AnimatePresence>
-                {mobileMenuOpen && (
-                    <motion.div 
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: '100vh' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="xl:hidden fixed inset-0 top-[72px] bg-slate-900 border-t border-slate-800 overflow-y-auto"
-                    >
-                        <div className="px-6 py-10 flex flex-col gap-2">
-                            {navigation.map((item) => (
+                    {/* Desktop Nav */}
+                    <nav className="hidden xl:flex items-center gap-8">
+                        <div className="flex gap-6">
+                            {navigation.slice(0, 5).map((item) => (
                                 <button 
                                     key={item.id} 
                                     onClick={() => handleNavClick(item.id)}
-                                    className={`text-left px-4 py-4 border-b border-slate-800 text-lg font-bold uppercase tracking-wider transition-colors ${currentPage === item.id ? 'text-stone-400' : 'text-white hover:text-stone-300'}`}
+                                    className={`text-sm font-bold uppercase tracking-wider transition-colors hover:text-[#B58D54] ${
+                                        currentPage === item.id 
+                                            ? 'text-[#B58D54]' 
+                                            : 'text-stone-600'
+                                    }`}
                                 >
                                     {item.label}
                                 </button>
                             ))}
-                            <div className="mt-8">
-                                <Button primary onClick={() => handleNavClick('contact')} className="w-full py-4 text-base bg-white text-slate-900 hover:bg-stone-200">
-                                    Request Quotation
-                                </Button>
+                            <div className="relative group">
+                                <button className="flex items-center text-sm font-bold uppercase tracking-wider transition-colors hover:text-[#B58D54] text-stone-600">
+                                    Operations <ChevronDown size={14} className="ml-1" />
+                                </button>
+                                <div className="absolute top-full right-0 mt-2 w-56 bg-white rounded-md shadow-xl border border-stone-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform translate-y-2 group-hover:translate-y-0 p-2">
+                                    {navigation.slice(5, 9).map((item) => (
+                                        <button 
+                                            key={item.id} 
+                                            onClick={() => handleNavClick(item.id)}
+                                            className="block w-full text-left px-4 py-3 text-sm font-bold uppercase tracking-wider text-stone-700 hover:bg-stone-50 hover:text-[#B58D54] rounded transition-colors border-b border-stone-50 last:border-0"
+                                        >
+                                            {item.label}
+                                        </button>
+                                    ))}
+                                </div>
                             </div>
+                        </div>
+                        <Button primary onClick={() => handleNavClick('contact')} className="px-6 py-2 text-xs bg-stone-900 hover:bg-stone-800">
+                            RFQ / Contact
+                        </Button>
+                    </nav>
+
+                    {/* Mobile Menu Toggle */}
+                    <button 
+                        className={`xl:hidden p-2 hover:text-[#B58D54] transition-colors focus:outline-none [-webkit-tap-highlight-color:transparent] ${isScrolled || mobileMenuOpen ? 'text-stone-800' : 'text-white'}`}
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    >
+                        {mobileMenuOpen ? <X size={32} strokeWidth={1.5} /> : <Menu size={32} strokeWidth={1.5} />}
+                    </button>
+                </div>
+            </header>
+
+            {/* Mobile Menu Content */}
+            <AnimatePresence>
+                {mobileMenuOpen && (
+                    <motion.div 
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="xl:hidden fixed inset-x-0 top-[88px] bottom-0 bg-white border-t border-stone-100 overflow-y-auto z-40"
+                    >
+                        <div className="px-6 py-8 flex flex-col gap-1 min-h-full">
+                            {navigation.map((item, i) => (
+                                <motion.button 
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: i * 0.05 + 0.1 }}
+                                    key={item.id} 
+                                    onClick={() => handleNavClick(item.id)}
+                                    className={`text-left px-4 py-5 text-xl font-black uppercase tracking-widest transition-colors flex items-center justify-between border-b border-stone-100 ${currentPage === item.id ? 'text-[#B58D54]' : 'text-stone-800 hover:text-[#B58D54]'}`}
+                                >
+                                    {item.label}
+                                    <ChevronRight size={20} className={currentPage === item.id ? 'text-[#B58D54]' : 'text-stone-300'} />
+                                </motion.button>
+                            ))}
+                            <motion.div 
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: navigation.length * 0.05 + 0.1 }}
+                                className="mt-auto pt-10 pb-6"
+                            >
+                                <Button primary onClick={() => handleNavClick('contact')} className="w-full py-5 text-sm tracking-widest bg-stone-900 hover:bg-[#B58D54] shadow-xl">
+                                    REQUEST QUOTATION
+                                </Button>
+                            </motion.div>
                         </div>
                     </motion.div>
                 )}
             </AnimatePresence>
-        </header>
+        </>
     );
 };
 
@@ -1182,7 +1427,7 @@ const Footer = ({ setPage }) => {
 };
 
 
-const About = ({ setPage }) => {
+const About = ({ setPage, isStandalone = false }) => {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -1194,7 +1439,7 @@ const About = ({ setPage }) => {
     const y = useTransform(scrollYProgress, [0, 1], [-50, 0]);
 
     return (
-        <div ref={ref} className="w-full bg-white pt-24 pb-16 lg:pt-32 lg:pb-24">
+        <div ref={ref} className={`w-full bg-white pb-12 lg:pb-16 ${isStandalone ? 'pt-32 lg:pt-48' : 'pt-16 lg:pt-20'}`}>
             <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col lg:flex-row items-center gap-16">
                     {/* Left Content */}
@@ -1204,40 +1449,40 @@ const About = ({ setPage }) => {
                                 ABOUT RAJ NANDINI IRON & MINERALS
                             </span>
                         </div>
-                        <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-black leading-[1.1] text-slate-900 mb-6 uppercase tracking-tight">
+                        <h2 className="text-4xl md:text-5xl lg:text-[3rem] font-black leading-[1.1] text-slate-900 mb-4 uppercase tracking-tight">
                             SUPPLYING THE MATERIALS THAT<br />BUILD INDUSTRIES
                         </h2>
                         
-                        <div className="w-16 h-[2px] bg-[#B58D54] mb-8"></div>
+                        <div className="w-16 h-[2px] bg-[#B58D54] mb-6"></div>
                         
-                        <p className="text-slate-600 text-lg md:text-xl mb-6 leading-relaxed font-medium">
+                        <p className="text-slate-600 text-lg md:text-xl mb-4 leading-relaxed font-medium">
                             Raj Nandini Iron & Minerals is a trusted name in the trading and supply of steel products, industrial raw materials, construction essentials, and scrap materials.
                         </p>
-                        <p className="text-slate-600 text-base md:text-lg mb-6 leading-relaxed">
+                        <p className="text-slate-600 text-base md:text-lg mb-4 leading-relaxed">
                             With a strong network of reliable manufacturers and global sourcing partners, we deliver quality products with consistency, transparency, and unmatched commitment.
                         </p>
-                        <p className="text-slate-600 text-base md:text-lg mb-10 leading-relaxed">
+                        <p className="text-slate-600 text-base md:text-lg mb-6 leading-relaxed">
                             Our solutions support manufacturers, infrastructure developers, fabricators, and contractors in building stronger structures and sustainable future.
                         </p>
                         
                         {/* Stats */}
-                        <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 mb-10 border-t border-b border-slate-200 py-8 w-full">
-                            <div className="flex flex-col items-start">
-                                <Users className="w-8 h-8 text-[#B58D54] mb-3 stroke-[1.5]" />
-                                <span className="text-3xl font-black text-slate-900 mb-1">200+</span>
-                                <span className="text-sm text-slate-500 font-bold uppercase tracking-wider">Trusted Clients</span>
+                        <div className="flex flex-row justify-between sm:justify-start gap-4 sm:gap-12 mb-6 border-t border-b border-slate-200 py-6 w-full overflow-x-auto hide-scrollbar">
+                            <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                                <Users className="w-6 sm:w-8 h-6 sm:h-8 text-[#B58D54] mb-2 sm:mb-3 stroke-[1.5]" />
+                                <span className="text-xl sm:text-3xl font-black text-slate-900 mb-1">200+</span>
+                                <span className="text-[10px] sm:text-sm text-slate-500 font-bold uppercase tracking-wider">Trusted Clients</span>
                             </div>
-                            <div className="hidden sm:block w-px bg-slate-200"></div>
-                            <div className="flex flex-col items-start">
-                                <MapPin className="w-8 h-8 text-[#B58D54] mb-3 stroke-[1.5]" />
-                                <span className="text-3xl font-black text-slate-900 mb-1">25+</span>
-                                <span className="text-sm text-slate-500 font-bold uppercase tracking-wider">States Served</span>
+                            <div className="w-px bg-slate-200 h-16 self-center"></div>
+                            <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                                <MapPin className="w-6 sm:w-8 h-6 sm:h-8 text-[#B58D54] mb-2 sm:mb-3 stroke-[1.5]" />
+                                <span className="text-xl sm:text-3xl font-black text-slate-900 mb-1">25+</span>
+                                <span className="text-[10px] sm:text-sm text-slate-500 font-bold uppercase tracking-wider">States Served</span>
                             </div>
-                            <div className="hidden sm:block w-px bg-slate-200"></div>
-                            <div className="flex flex-col items-start">
-                                <Layers className="w-8 h-8 text-[#B58D54] mb-3 stroke-[1.5]" />
-                                <span className="text-3xl font-black text-slate-900 mb-1">One Source</span>
-                                <span className="text-sm text-slate-500 font-bold tracking-wider">Steel • Raw Materials • Scrap</span>
+                            <div className="w-px bg-slate-200 h-16 self-center"></div>
+                            <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                                <Layers className="w-6 sm:w-8 h-6 sm:h-8 text-[#B58D54] mb-2 sm:mb-3 stroke-[1.5]" />
+                                <span className="text-xl sm:text-3xl font-black text-slate-900 mb-1">One Source</span>
+                                <span className="text-[10px] sm:text-sm text-slate-500 font-bold tracking-wider">Steel • Raw Materials • Scrap</span>
                             </div>
                         </div>
 
@@ -1248,11 +1493,11 @@ const About = ({ setPage }) => {
                     </motion.div>
                     
                     {/* Right Image */}
-                    <motion.div style={{ opacity, clipPath }} className="w-full lg:w-1/2 relative">
+                    <motion.div style={{ opacity, clipPath }} className="w-full lg:w-1/2 relative flex justify-center items-center">
                         <img 
                             src="/assets/aboutus.png" 
                             alt="About Raj Nandini Iron and Minerals" 
-                            className="w-full h-auto rounded-[2rem] shadow-2xl object-cover"
+                            className="max-w-full w-auto h-auto max-h-[60vh] lg:max-h-[75vh] rounded-[2rem] shadow-2xl"
                         />
                     </motion.div>
                 </div>
@@ -1263,7 +1508,7 @@ const About = ({ setPage }) => {
 
 
 
-const Founder = ({ setPage }) => {
+const Founder = ({ setPage, isStandalone = false }) => {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -1275,7 +1520,7 @@ const Founder = ({ setPage }) => {
     const y = useTransform(scrollYProgress, [0, 1], [-50, 0]);
 
     return (
-        <div ref={ref} className="w-full bg-slate-50 pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
+        <div ref={ref} className={`w-full bg-slate-50 pb-12 lg:pb-16 overflow-hidden ${isStandalone ? 'pt-32 lg:pt-48' : 'pt-16 lg:pt-20'}`}>
             <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
                     {/* Text Content */}
@@ -1285,19 +1530,19 @@ const Founder = ({ setPage }) => {
                                 FOUNDER'S DESK
                             </span>
                         </div>
-                        <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-black leading-[1.1] text-slate-900 mb-6 uppercase tracking-tight">
+                        <h2 className="text-4xl md:text-5xl lg:text-[3rem] font-black leading-[1.1] text-slate-900 mb-4 uppercase tracking-tight">
                             MESSAGE FROM<br />LEADERSHIP
                         </h2>
                         
-                        <div className="w-16 h-[2px] bg-[#B58D54] mb-8"></div>
+                        <div className="w-16 h-[2px] bg-[#B58D54] mb-6"></div>
                         
-                        <p className="text-slate-600 text-lg md:text-xl mb-6 leading-relaxed font-medium italic border-l-4 border-[#B58D54] pl-6 py-2">
+                        <p className="text-slate-600 text-lg md:text-xl mb-4 leading-relaxed font-medium italic border-l-4 border-[#B58D54] pl-6 py-2">
                             “In the complex world of industrial procurement, reliability is the ultimate currency. We didn't build this company just to move steel; we built it to remove the anxiety from supply chains.”
                         </p>
-                        <p className="text-slate-600 text-base md:text-lg mb-6 leading-relaxed">
+                        <p className="text-slate-600 text-base md:text-lg mb-4 leading-relaxed">
                             Our journey began with a simple vision: to become the most dependable bridge between prime manufacturers and the markets that build our nation. Over the years, we have scaled our operations across 25+ states, but our core philosophy remains unchanged.
                         </p>
-                        <p className="text-slate-600 text-base md:text-lg mb-10 leading-relaxed">
+                        <p className="text-slate-600 text-base md:text-lg mb-6 leading-relaxed">
                             We believe in forging lasting partnerships through consistency, financial integrity, and an uncompromising commitment to quality. When you partner with Raj Nandini Iron and Minerals, you are not just buying materials—you are securing peace of mind.
                         </p>
 
@@ -1308,11 +1553,11 @@ const Founder = ({ setPage }) => {
                     </motion.div>
                     
                     {/* Image Content */}
-                    <motion.div style={{ opacity, clipPath }} className="w-full lg:w-1/2 relative">
+                    <motion.div style={{ opacity, clipPath }} className="w-full lg:w-1/2 relative flex justify-center items-center">
                         <img 
                             src="/assets/founder.png" 
                             alt="Founder of Raj Nandini Iron and Minerals" 
-                            className="w-full h-auto rounded-[2rem] shadow-2xl object-cover"
+                            className="max-w-full w-auto h-auto max-h-[60vh] lg:max-h-[75vh] rounded-[2rem] shadow-2xl"
                         />
                     </motion.div>
                 </div>
@@ -1334,7 +1579,7 @@ const GlobalNetwork = ({ setPage }) => {
     const y = useTransform(scrollYProgress, [0, 1], [-50, 0]);
 
     return (
-        <div ref={ref} className="w-full bg-white pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
+        <div ref={ref} className="w-full bg-white pt-16 pb-12 lg:pt-20 lg:pb-16 overflow-hidden">
             <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col lg:flex-row items-center gap-16">
                     {/* Left Content */}
@@ -1345,46 +1590,46 @@ const GlobalNetwork = ({ setPage }) => {
                                 GLOBAL NETWORK
                             </span>
                         </div>
-                        <div className="w-16 h-[2px] bg-[#B58D54] mb-8"></div>
-                        <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-black leading-[1.1] text-slate-900 mb-6 uppercase tracking-tight">
+                        <div className="w-16 h-[2px] bg-[#B58D54] mb-6"></div>
+                        <h2 className="text-4xl md:text-5xl lg:text-[3rem] font-black leading-[1.1] text-slate-900 mb-4 uppercase tracking-tight">
                             BUILT FOR<br />MASSIVE SCALE
                         </h2>
                         
-                        <p className="text-[#B58D54] text-xl md:text-2xl mb-8 leading-relaxed font-medium tracking-tight">
+                        <p className="text-[#B58D54] text-xl md:text-2xl mb-4 leading-relaxed font-medium tracking-tight">
                             Strong Network. Reliable Supply. Global Reach.
                         </p>
 
-                        <p className="text-slate-600 text-lg md:text-xl mb-6 leading-relaxed font-medium">
+                        <p className="text-slate-600 text-lg md:text-xl mb-4 leading-relaxed font-medium">
                             With a strong presence across 25+ states and a well-established international network, we ensure uninterrupted supply of steel, raw materials, and scrap to industries of every scale.
                         </p>
-                        <p className="text-slate-600 text-base md:text-lg mb-10 leading-relaxed">
+                        <p className="text-slate-600 text-base md:text-lg mb-6 leading-relaxed">
                             Our advanced logistics infrastructure, trusted transport partners, and experienced team enable us to execute large-volume contracts with precision, safety, and on-time delivery—every time.
                         </p>
                         
                         {/* Stats */}
-                        <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between w-full border-t border-b border-slate-200 py-8 mb-10 gap-8 sm:gap-4">
-                            <div className="flex flex-col items-center sm:items-start text-center sm:text-left flex-1">
-                                <MapPin className="w-8 h-8 text-[#B58D54] mb-3 stroke-[1.5]" />
-                                <span className="text-3xl font-black text-slate-900 mb-1">25+</span>
-                                <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">States Covered</span>
+                        <div className="flex flex-row items-center sm:items-start justify-between w-full border-t border-b border-slate-200 py-6 mb-6 gap-2 sm:gap-4 overflow-x-auto hide-scrollbar">
+                            <div className="flex flex-col items-center sm:items-start text-center sm:text-left flex-1 min-w-[80px]">
+                                <MapPin className="w-6 sm:w-8 h-6 sm:h-8 text-[#B58D54] mb-2 sm:mb-3 stroke-[1.5]" />
+                                <span className="text-xl sm:text-3xl font-black text-slate-900 mb-1">25+</span>
+                                <span className="text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider">States Covered</span>
                             </div>
-                            <div className="hidden sm:block w-px bg-slate-200 h-16 mt-2"></div>
-                            <div className="flex flex-col items-center sm:items-start text-center sm:text-left flex-1">
-                                <Globe className="w-8 h-8 text-[#B58D54] mb-3 stroke-[1.5]" />
-                                <span className="text-3xl font-black text-slate-900 mb-1">50+</span>
-                                <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Global Partners</span>
+                            <div className="w-px bg-slate-200 h-16 self-center mx-1 sm:mx-0"></div>
+                            <div className="flex flex-col items-center sm:items-start text-center sm:text-left flex-1 min-w-[80px]">
+                                <Globe className="w-6 sm:w-8 h-6 sm:h-8 text-[#B58D54] mb-2 sm:mb-3 stroke-[1.5]" />
+                                <span className="text-xl sm:text-3xl font-black text-slate-900 mb-1">50+</span>
+                                <span className="text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider">Global Partners</span>
                             </div>
-                            <div className="hidden sm:block w-px bg-slate-200 h-16 mt-2"></div>
-                            <div className="flex flex-col items-center sm:items-start text-center sm:text-left flex-1">
-                                <Truck className="w-8 h-8 text-[#B58D54] mb-3 stroke-[1.5]" />
-                                <span className="text-3xl font-black text-slate-900 mb-1">1000+</span>
-                                <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Deliveries Completed</span>
+                            <div className="w-px bg-slate-200 h-16 self-center mx-1 sm:mx-0"></div>
+                            <div className="flex flex-col items-center sm:items-start text-center sm:text-left flex-1 min-w-[80px]">
+                                <Truck className="w-6 sm:w-8 h-6 sm:h-8 text-[#B58D54] mb-2 sm:mb-3 stroke-[1.5]" />
+                                <span className="text-xl sm:text-3xl font-black text-slate-900 mb-1">1000+</span>
+                                <span className="text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider">Deliveries Completed</span>
                             </div>
-                            <div className="hidden sm:block w-px bg-slate-200 h-16 mt-2"></div>
-                            <div className="flex flex-col items-center sm:items-start text-center sm:text-left flex-1">
-                                <Users className="w-8 h-8 text-[#B58D54] mb-3 stroke-[1.5]" />
-                                <span className="text-3xl font-black text-slate-900 mb-1">500+</span>
-                                <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Satisfied Customers</span>
+                            <div className="w-px bg-slate-200 h-16 self-center mx-1 sm:mx-0"></div>
+                            <div className="flex flex-col items-center sm:items-start text-center sm:text-left flex-1 min-w-[80px]">
+                                <Users className="w-6 sm:w-8 h-6 sm:h-8 text-[#B58D54] mb-2 sm:mb-3 stroke-[1.5]" />
+                                <span className="text-xl sm:text-3xl font-black text-slate-900 mb-1">500+</span>
+                                <span className="text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider">Satisfied Customers</span>
                             </div>
                         </div>
 
@@ -1395,11 +1640,11 @@ const GlobalNetwork = ({ setPage }) => {
                     </motion.div>
                     
                     {/* Right Image */}
-                    <motion.div style={{ opacity, clipPath }} className="w-full lg:w-1/2 relative mt-12 lg:mt-0">
+                    <motion.div style={{ opacity, clipPath }} className="w-full lg:w-1/2 relative mt-12 lg:mt-0 flex justify-center items-center">
                         <img 
                             src="/assets/globalsection.png" 
                             alt="Global Network of Raj Nandini Iron and Minerals" 
-                            className="w-full h-auto rounded-[2rem] shadow-2xl object-cover bg-slate-50"
+                            className="max-w-full w-auto h-auto max-h-[60vh] lg:max-h-[75vh] rounded-[2rem] shadow-2xl bg-slate-50"
                         />
                     </motion.div>
                 </div>
@@ -1416,8 +1661,8 @@ export default function App() {
     const renderPage = () => {
         switch (currentPage) {
             case 'home': return <Home setPage={setCurrentPage} />;
-            case 'about': return <About setPage={setCurrentPage} />;
-            case 'founder': return <Founder setPage={setCurrentPage} />;
+            case 'about': return <About setPage={setCurrentPage} isStandalone />;
+            case 'founder': return <Founder setPage={setCurrentPage} isStandalone />;
             case 'products': return <Products setPage={setCurrentPage} />;
             case 'industries': return <Industries />;
             case 'import-export': return <ImportExport />;
@@ -1434,7 +1679,7 @@ export default function App() {
             <Navbar currentPage={currentPage} setPage={setCurrentPage} />
             
             <main className="relative z-10 flex flex-col bg-stone-50 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-b-[2rem] sm:rounded-b-[3rem] mb-[70vh] min-h-screen">
-                <AnimatePresence mode="wait">
+                <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
                     <motion.div
                         key={currentPage}
                         initial={{ opacity: 0, y: 15 }}
@@ -1451,16 +1696,23 @@ export default function App() {
                 <section className="relative py-24 sm:py-32 px-6 sm:px-12 mt-auto border-t border-slate-200 overflow-hidden bg-[#F6F4F0]">
                     {/* Background image uploaded by user */}
                     <div className="absolute inset-0 z-0">
-                        {/* Make sure to save your uploaded background image as 'cta-bg.jpg' in the assets folder! */}
+                        {/* Mobile Background */}
+                        <img 
+                            src="/assets/cta_banner_mobile.jpg" 
+                            alt="Background Decoration Mobile" 
+                            className="w-full h-full object-cover object-center lg:hidden" 
+                            onError={(e) => e.target.style.display='none'}
+                        />
+                        {/* Desktop Background */}
                         <img 
                             src="/assets/cta_banner.png" 
                             alt="Background Decoration" 
-                            className="w-full h-full object-cover object-right lg:object-center" 
+                            className="hidden lg:block w-full h-full object-cover object-right lg:object-center" 
                             onError={(e) => e.target.style.display='none'}
                         />
                     </div>
                     
-                    <div className="max-w-4xl mx-auto flex flex-col items-center text-center relative z-10">
+                    <div className="max-w-4xl mx-auto flex flex-col items-center text-center relative z-10 bg-white/85 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-8 sm:p-12 lg:p-0 rounded-3xl lg:rounded-none border border-white/60 lg:border-transparent shadow-xl lg:shadow-none my-8 lg:my-0">
                         {/* Golden Dash */}
                         <div className="w-12 h-[2px] bg-[#B58D54] mb-8"></div>
                         
