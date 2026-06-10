@@ -113,6 +113,46 @@
 
     <!-- ===== THEME ===== -->
     <meta name="theme-color" content="#0f172a" />
+
+    <!-- ===== PRE-HYDRATION PER-PAGE SEO ===== -->
+    <!-- Runs synchronously before React loads so Googlebot sees correct titles/descriptions -->
+    <script>
+      (function() {
+        var path = window.location.pathname.replace(/^\//, '').replace(/\/$/, '') || 'home';
+        var pages = {
+          'home':           { title: 'Rajnandini Iron and Minerals | B2B Steel, TMT Bars & Raw Materials Supplier India', desc: 'Rajnandini Iron and Minerals \u2013 Premier B2B wholesale supplier, trader & exporter of TMT bars, structural steel, HR coils, raw materials & industrial scrap. Pan-India delivery across 25+ states. GSTIN: 20HXGPP9326A1ZN.' },
+          'about':          { title: 'About Us | Rajnandini Iron and Minerals \u2013 Trusted B2B Steel Supplier', desc: 'Rajnandini Iron and Minerals is a trusted B2B wholesale trader and supplier of steel, raw materials, and industrial scrap serving 25+ states across India.' },
+          'founder':        { title: "Founder's Desk | Rajnandini Iron and Minerals \u2013 Leadership & Vision", desc: 'Meet the Founder & Managing Director of Rajnandini Iron and Minerals. A message on reliability, integrity, and building India\u2019s supply chains.' },
+          'products':       { title: 'Procurement Catalog | Rajnandini Iron and Minerals \u2013 TMT Bars, Steel & More', desc: 'Browse Rajnandini Iron and Minerals\u2019 full procurement catalog: TMT bars, HR coils, structural steel, MS angles, cement, coal, sponge iron, and industrial scrap.' },
+          'industries':     { title: 'Industries We Serve | Rajnandini Iron and Minerals \u2013 Steel & Raw Material Partners', desc: 'Rajnandini Iron and Minerals partners with SAIL, Tata Steel, JSW, ArcelorMittal and leading cement & smelting brands to supply quality materials across India.' },
+          'import-export':  { title: 'Import & Export Operations | Rajnandini Iron and Minerals \u2013 Global Trade', desc: 'Rajnandini Iron and Minerals is an IEC-registered importer & exporter of steel, raw materials, and industrial commodities with global sourcing capabilities.' },
+          'infrastructure': { title: 'Infrastructure & Network | Rajnandini Iron and Minerals \u2013 Logistics & Scale', desc: 'Rajnandini Iron and Minerals operates a pan-India logistics network with 1000+ deliveries, covering 25+ states with reliable transport and warehousing.' },
+          'contact':        { title: 'Contact Us | Rajnandini Iron and Minerals \u2013 RFQ & Bulk Order Enquiries', desc: 'Get in touch with Rajnandini Iron and Minerals for bulk steel orders, RFQs, and procurement enquiries. Call, email, or WhatsApp our sales team today.' }
+        };
+        var meta = pages[path] || pages['home'];
+
+        // <title>
+        document.title = meta.title;
+
+        // helper: set or create a meta tag
+        function setMeta(sel, attr, val) {
+          var el = document.querySelector(sel);
+          if (el) el.setAttribute(attr, val);
+        }
+
+        setMeta('meta[name="description"]',        'content', meta.desc);
+        setMeta('meta[property="og:title"]',        'content', meta.title);
+        setMeta('meta[property="og:description"]',  'content', meta.desc);
+        setMeta('meta[name="twitter:title"]',       'content', meta.title);
+        setMeta('meta[name="twitter:description"]', 'content', meta.desc);
+
+        // canonical & og:url
+        var base = 'https://rajnandiniironandminerals.com';
+        var canonical = path === 'home' ? base + '/' : base + '/' + path;
+        setMeta('link[rel="canonical"]', 'href', canonical);
+        setMeta('meta[property="og:url"]', 'content', canonical);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

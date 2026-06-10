@@ -29,7 +29,7 @@ const BRAND_CATEGORIES = [
             { name: 'Shakambari Straw Products Limited (Shakambari Group)', logo: 'Shakambari-Straw-Products-Limited.jpg' },
             { name: 'Maan Steel and Power ltd.', logo: 'Maan-Steel-and-power.jpg' },
             { name: 'Paras Steel Industries', logo: 'Paras-Steel-Industries.png' },
-            { name: 'Shree Narayani Ispat', logo: null, fallback: 'N' },
+            { name: 'Shree Narayani Ispat', logo: 'shree_narayani_logo.jpeg' },
             { name: 'Sarda Energy & Minerals Limited', logo: 'SardaEnerg.png' },
             { name: 'Kamdhenu Limited', logo: 'Kamdhenu-Limited.png' },
             { name: 'Asian Colour Coated Ispat Limited', logo: 'asian-color-coated-ispat-limited.jpg' },

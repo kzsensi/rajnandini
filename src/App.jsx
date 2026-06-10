@@ -1686,7 +1686,7 @@ const Founder = ({ setPage, isStandalone = false }) => {
                         </p>
 
                         <div className="flex flex-col items-start gap-1 mt-2">
-                            <h4 className="text-xl font-black text-slate-900 tracking-wider">Vinatak Pandey</h4>
+                            <h4 className="text-xl font-black text-slate-900 tracking-wider">Vinayak Pandey</h4>
                             <span className="text-[#B58D54] font-bold text-xs tracking-[0.2em] uppercase">Founder & Managing Director</span>
                         </div>
                     </motion.div>
@@ -1924,6 +1924,79 @@ export default function App() {
         if (window.location.pathname !== path) {
             window.history.pushState(null, '', path);
         }
+    }, [currentPage]);
+
+    // --- Per-page SEO: update <title> and <meta description> on every navigation ---
+    useEffect(() => {
+        const pageMeta = {
+            home: {
+                title: 'Rajnandini Iron and Minerals | B2B Steel, TMT Bars & Raw Materials Supplier India',
+                description: 'Rajnandini Iron and Minerals – Premier B2B wholesale supplier, trader & exporter of TMT bars, structural steel, HR coils, raw materials & industrial scrap. Pan-India delivery across 25+ states. GSTIN: 20HXGPP9326A1ZN.',
+            },
+            about: {
+                title: 'About Us | Rajnandini Iron and Minerals – Trusted B2B Steel Supplier',
+                description: 'Rajnandini Iron and Minerals is a trusted B2B wholesale trader and supplier of steel, raw materials, and industrial scrap serving 25+ states across India.',
+            },
+            founder: {
+                title: "Founder's Desk | Rajnandini Iron and Minerals – Leadership & Vision",
+                description: "Meet the Founder & Managing Director of Rajnandini Iron and Minerals. A message on reliability, integrity, and building India's supply chains.",
+            },
+            products: {
+                title: 'Procurement Catalog | Rajnandini Iron and Minerals – TMT Bars, Steel & More',
+                description: "Browse Rajnandini Iron and Minerals' full procurement catalog: TMT bars, HR coils, structural steel, MS angles, cement, coal, sponge iron, and industrial scrap.",
+            },
+            industries: {
+                title: 'Industries We Serve | Rajnandini Iron and Minerals – Steel & Raw Material Partners',
+                description: 'Rajnandini Iron and Minerals partners with SAIL, Tata Steel, JSW, ArcelorMittal and leading cement & smelting brands to supply quality materials across India.',
+            },
+            'import-export': {
+                title: 'Import & Export Operations | Rajnandini Iron and Minerals – Global Trade',
+                description: 'Rajnandini Iron and Minerals is an IEC-registered importer & exporter of steel, raw materials, and industrial commodities with global sourcing capabilities.',
+            },
+            infrastructure: {
+                title: 'Infrastructure & Network | Rajnandini Iron and Minerals – Logistics & Scale',
+                description: 'Rajnandini Iron and Minerals operates a pan-India logistics network with 1000+ deliveries, covering 25+ states with reliable transport and warehousing.',
+            },
+            contact: {
+                title: 'Contact Us | Rajnandini Iron and Minerals – RFQ & Bulk Order Enquiries',
+                description: 'Get in touch with Rajnandini Iron and Minerals for bulk steel orders, RFQs, and procurement enquiries. Call, email, or WhatsApp our sales team today.',
+            },
+        };
+
+        const meta = pageMeta[currentPage] || pageMeta.home;
+
+        // Update <title>
+        document.title = meta.title;
+
+        // Update meta description
+        let descTag = document.querySelector('meta[name="description"]');
+        if (descTag) descTag.setAttribute('content', meta.description);
+
+        // Update og:title
+        let ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', meta.title);
+
+        // Update og:description
+        let ogDesc = document.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', meta.description);
+
+        // Update twitter:title
+        let twTitle = document.querySelector('meta[name="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', meta.title);
+
+        // Update twitter:description
+        let twDesc = document.querySelector('meta[name="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', meta.description);
+
+        // Update canonical URL
+        let canonical = document.querySelector('link[rel="canonical"]');
+        const canonicalPath = currentPage === 'home' ? '/' : `/${currentPage}`;
+        if (canonical) canonical.setAttribute('href', `https://rajnandiniironandminerals.com${canonicalPath}`);
+
+        // Update og:url
+        let ogUrl = document.querySelector('meta[property="og:url"]');
+        if (ogUrl) ogUrl.setAttribute('content', `https://rajnandiniironandminerals.com${canonicalPath}`);
+
     }, [currentPage]);
 
     const renderPage = () => {
