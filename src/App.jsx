@@ -16,12 +16,14 @@ import Infrastructure from './pages/Infrastructure';
 
 // --- COMPREHENSIVE B2B DATA ---
 
-export const COMPANY_NAME = "Raj Nandini Iron and Minerals";
-export const SITE_NAME = "Raj & Nandini Iron and Minerals";
+export const COMPANY_NAME = "Rajnandini Iron and Minerals";
+export const SITE_NAME = "Rajnandini Iron and Minerals";
 const EMAIL = "rajnandiniironandminerals@gmail.com";
 const PHONE = "+91 91137 52733 / +91 93342 37331";
 const WHATSAPP_PHONE = "919113752733";
 const GSTIN = "20HXGPP9326A1ZN";
+const REG_OFFICE = "Plot No. 71, Arya Vihar, Bari Co-Operative, Bokaro (JH)";
+const CORP_OFFICE = "1, Crooked Lane, Room No. 104, 1st Floor, Kolkata - 700069";
 
 const navigation = [
     { id: 'home', label: 'Home' },
@@ -595,7 +597,7 @@ export const industriesServed = [
 ];
 
 const faqs = [
-    { q: "Do you manufacture these products?", a: "No, Raj Nandini Iron and Minerals is a premier B2B Trader, Wholesaler, Supplier, Importer, and Exporter. We bridge the gap between primary manufacturers and large-scale consumers through our robust supply chain." },
+    { q: "Do you manufacture these products?", a: "No, Rajnandini Iron and Minerals is a premier B2B Trader, Wholesaler, Supplier, Importer, and Exporter. We bridge the gap between primary manufacturers and large-scale consumers through our robust supply chain." },
     { q: "What is your minimum order quantity (MOQ)?", a: "As a bulk supplier, our minimum order quantities vary by product category (typically in metric tons). Please contact our sales team with your specific requirements for an exact MOQ." },
     { q: "Do you supply outside of India?", a: "Yes, we have a dedicated Import & Export division capable of handling international procurement and exporting materials globally, complete with documentation and logistics support." },
     { q: "How do you ensure the quality of materials?", a: "We only source from certified, primary, and secondary manufacturers. All dispatches can be accompanied by Mill Test Certificates (MTC) and third-party inspection reports upon request." },
@@ -759,7 +761,7 @@ const Home = ({ setPage }) => {
                                 {/* Uses the uploaded golden peacock logo */}
                                 <img 
                                     src="/assets/peacockillustration.png" 
-                                    alt="Raj Nandini Peacock Logo" 
+                                    alt="Rajnandini Peacock Logo" 
                                     className="w-48 md:w-72 lg:w-[22rem] h-auto mb-6 lg:mb-10 object-contain drop-shadow-lg brightness-0 invert" 
                                     onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/500x400/f8f9fa/b58d54?text=Peacock+Logo"; }} 
                                 />
@@ -1297,6 +1299,20 @@ const Contact = () => {
                                     </div>
                                 </div>
                                 <div className="flex items-start">
+                                    <MapPin className="w-5 h-5 text-stone-400 mr-4 shrink-0 mt-0.5" />
+                                    <div>
+                                        <h4 className="font-bold text-xs uppercase tracking-widest mb-1 text-stone-400">Registered Office</h4>
+                                        <p className="text-slate-200 text-sm leading-relaxed">{REG_OFFICE}</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-start">
+                                    <Building2 className="w-5 h-5 text-stone-400 mr-4 shrink-0 mt-0.5" />
+                                    <div>
+                                        <h4 className="font-bold text-xs uppercase tracking-widest mb-1 text-stone-400">Corporate Office</h4>
+                                        <p className="text-slate-200 text-sm leading-relaxed">{CORP_OFFICE}</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-start">
                                     <Globe className="w-5 h-5 text-stone-400 mr-4 shrink-0 mt-0.5" />
                                     <div>
                                         <h4 className="font-bold text-xs uppercase tracking-widest mb-1 text-stone-400">Scope of Work</h4>
@@ -1306,21 +1322,6 @@ const Contact = () => {
                             </div>
                         </div>
 
-                        <div className="bg-white border border-slate-200 p-8 rounded-3xl">
-                            <h4 className="font-bold text-slate-900 uppercase tracking-widest mb-6 border-b border-slate-100 pb-3 text-sm flex items-center gap-2">
-                                <span className="w-2.5 h-2.5 rounded-full bg-slate-900"></span> Business Operating Hours
-                            </h4>
-                            <div className="space-y-3">
-                                <div className="flex justify-between text-slate-600 text-sm">
-                                    <span>Monday - Saturday</span> 
-                                    <span className="font-bold text-slate-900">09:00 AM - 07:00 PM</span>
-                                </div>
-                                <div className="flex justify-between text-slate-600 text-sm">
-                                    <span>Sunday</span> 
-                                    <span className="font-bold text-red-500">Closed (Operations Only)</span>
-                                </div>
-                            </div>
-                        </div>
                     </SectionReveal>
 
                 </div>
@@ -1365,7 +1366,7 @@ const Navbar = ({ currentPage, setPage }) => {
             <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled || mobileMenuOpen ? 'bg-white/95 backdrop-blur-xl shadow-sm py-4 border-b border-stone-200' : 'bg-transparent py-6'}`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center relative z-20">
                     <div className="flex items-center gap-4 cursor-pointer group" onClick={() => handleNavClick('home')}>
-                        <img src="/assets/logo.png" alt="Raj Nandini Logo" className="w-auto h-16 md:h-20 lg:h-24 object-contain" onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
+                        <img src="/assets/logo.png" alt="Rajnandini Logo" className="w-auto h-16 md:h-20 lg:h-24 object-contain" onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
                         <div className="hidden items-center justify-center w-16 h-16 bg-[#B58D54] text-white rounded-full font-bold text-2xl">RN</div>
                     </div>
 
@@ -1461,7 +1462,7 @@ const Navbar = ({ currentPage, setPage }) => {
 
 const Footer = ({ setPage }) => {
     return (
-        <footer className="relative md:fixed bottom-0 left-0 w-full h-auto md:h-[480px] z-0 bg-slate-950 text-white flex flex-col justify-between pt-10 md:pt-14 pb-6 px-6 md:px-12 lg:px-20 overflow-hidden">
+        <footer className="relative md:fixed bottom-0 left-0 w-full h-auto md:h-[550px] z-0 bg-slate-950 text-white flex flex-col justify-between pt-10 md:pt-14 pb-6 px-6 md:px-12 lg:px-20 overflow-hidden">
             {/* Footer Top Links */}
             <div className="flex flex-col md:flex-row justify-between items-start w-full max-w-7xl mx-auto gap-10 md:gap-0">
                 <div className="max-w-sm">
@@ -1520,6 +1521,18 @@ const Footer = ({ setPage }) => {
                                 </span>
                             </li>
                             <li className="flex flex-col gap-0.5">
+                                <span className="text-slate-400 font-bold text-[10px] uppercase tracking-wider block">Regd. Office</span>
+                                <span className="text-slate-300 leading-normal">
+                                    {REG_OFFICE}
+                                </span>
+                            </li>
+                            <li className="flex flex-col gap-0.5">
+                                <span className="text-slate-400 font-bold text-[10px] uppercase tracking-wider block">Corp. Office</span>
+                                <span className="text-slate-300 leading-normal">
+                                    {CORP_OFFICE}
+                                </span>
+                            </li>
+                            <li className="flex flex-col gap-0.5">
                                 <span className="text-slate-400 font-bold text-[10px] uppercase tracking-wider block">GSTIN</span>
                                 <span className="text-slate-300 font-mono text-[10px]">
                                     {GSTIN}
@@ -1534,7 +1547,7 @@ const Footer = ({ setPage }) => {
             <div className="w-full flex flex-col items-center justify-end mt-8 md:mt-auto pointer-events-none pb-2 md:pb-0">
                 <img 
                     src="/assets/rajnandini_text_logo.png" 
-                    alt="Raj &amp; Nandini" 
+                    alt="Rajnandini" 
                     className="w-[80%] md:w-[50%] max-w-2xl h-auto max-h-[75px] object-contain select-none pointer-events-auto opacity-80 hover:opacity-100 transition-opacity"
                     onError={(e) => {
                         e.target.style.display = 'none';
@@ -1542,7 +1555,7 @@ const Footer = ({ setPage }) => {
                     }}
                 />
                 <h2 style={{ display: 'none' }} className="text-[10vw] sm:text-[11vw] md:text-[12vw] lg:text-[13vw] whitespace-nowrap font-black leading-[0.75] tracking-tighter text-slate-100/90 select-none uppercase">
-                    Raj &amp; Nandini
+                    Rajnandini
                 </h2>
                 <p className="pointer-events-auto text-slate-600 text-[10px] tracking-widest uppercase mt-2 pb-1">
                     © {new Date().getFullYear()} {SITE_NAME} · GSTIN: {GSTIN} · All Rights Reserved
@@ -1572,7 +1585,7 @@ const About = ({ setPage, isStandalone = false }) => {
                     <motion.div style={{ y }} className="w-full lg:w-1/2 flex flex-col items-start text-left lg:pr-8">
                         <div className="flex items-center gap-4 mb-4">
                             <span className="text-sm font-bold tracking-[0.15em] uppercase text-[#B58D54]">
-                                ABOUT RAJ NANDINI IRON & MINERALS
+                                ABOUT RAJNANDINI IRON & MINERALS
                             </span>
                         </div>
                         <h2 className="text-4xl md:text-5xl lg:text-[3rem] font-black leading-[1.1] text-slate-900 mb-4 uppercase tracking-tight">
@@ -1582,7 +1595,7 @@ const About = ({ setPage, isStandalone = false }) => {
                         <div className="w-16 h-[2px] bg-[#B58D54] mb-6"></div>
                         
                         <p className="text-slate-600 text-lg md:text-xl mb-4 leading-relaxed font-medium">
-                            Raj Nandini Iron & Minerals is a trusted name in the trading and supply of steel products, industrial raw materials, construction essentials, and scrap materials.
+                            Rajnandini Iron & Minerals is a trusted name in the trading and supply of steel products, industrial raw materials, construction essentials, and scrap materials.
                         </p>
                         <p className="text-slate-600 text-base md:text-lg mb-4 leading-relaxed">
                             With a strong network of reliable manufacturers and global sourcing partners, we deliver quality products with consistency, transparency, and unmatched commitment.
@@ -1622,7 +1635,7 @@ const About = ({ setPage, isStandalone = false }) => {
                     <motion.div style={{ opacity, clipPath }} className="w-full lg:w-1/2 relative flex justify-center items-center">
                         <img 
                             src="/assets/aboutus.png" 
-                            alt="About Raj Nandini Iron and Minerals" 
+                            alt="About Rajnandini Iron and Minerals" 
                             className="max-w-full w-auto h-auto max-h-[60vh] lg:max-h-[75vh] rounded-[2rem] shadow-2xl"
                         />
                     </motion.div>
@@ -1669,11 +1682,11 @@ const Founder = ({ setPage, isStandalone = false }) => {
                             Our journey began with a simple vision: to become the most dependable bridge between prime manufacturers and the markets that build our nation. Over the years, we have scaled our operations across 25+ states, but our core philosophy remains unchanged.
                         </p>
                         <p className="text-slate-600 text-base md:text-lg mb-6 leading-relaxed">
-                            We believe in forging lasting partnerships through consistency, financial integrity, and an uncompromising commitment to quality. When you partner with Raj Nandini Iron and Minerals, you are not just buying materials—you are securing peace of mind.
+                            We believe in forging lasting partnerships through consistency, financial integrity, and an uncompromising commitment to quality. When you partner with Rajnandini Iron and Minerals, you are not just buying materials—you are securing peace of mind.
                         </p>
 
                         <div className="flex flex-col items-start gap-1 mt-2">
-                            <h4 className="text-xl font-black text-slate-900 tracking-wider">Raj Nandini</h4>
+                            <h4 className="text-xl font-black text-slate-900 tracking-wider">Vinatak Pandey</h4>
                             <span className="text-[#B58D54] font-bold text-xs tracking-[0.2em] uppercase">Founder & Managing Director</span>
                         </div>
                     </motion.div>
@@ -1682,7 +1695,7 @@ const Founder = ({ setPage, isStandalone = false }) => {
                     <motion.div style={{ opacity, clipPath }} className="w-full lg:w-1/2 relative flex justify-center items-center">
                         <img 
                             src="/assets/founder.png" 
-                            alt="Founder of Raj Nandini Iron and Minerals" 
+                            alt="Founder of Rajnandini Iron and Minerals" 
                             className="max-w-full w-auto h-auto max-h-[60vh] lg:max-h-[75vh] rounded-[2rem] shadow-2xl"
                         />
                     </motion.div>
@@ -1769,7 +1782,7 @@ const GlobalNetwork = ({ setPage }) => {
                     <motion.div style={{ opacity, clipPath }} className="w-full lg:w-1/2 relative mt-12 lg:mt-0 flex justify-center items-center">
                         <img 
                             src="/assets/globalsection.png" 
-                            alt="Global Network of Raj Nandini Iron and Minerals" 
+                            alt="Global Network of Rajnandini Iron and Minerals" 
                             className="max-w-full w-auto h-auto max-h-[60vh] lg:max-h-[75vh] rounded-[2rem] shadow-2xl bg-slate-50"
                         />
                     </motion.div>
@@ -1848,7 +1861,7 @@ const LogoPreloader = () => {
 
                 <motion.img 
                     src="/assets/rajnandini_text_logo.png" 
-                    alt="Raj &amp; Nandini"
+                    alt="Rajnandini"
                     initial={{ opacity: 0 }}
                     animate={{ 
                         opacity: [0.5, 0.85, 0.5],
@@ -1935,7 +1948,7 @@ export default function App() {
             
             <Navbar currentPage={currentPage} setPage={setCurrentPage} />
             
-            <main className="relative z-10 flex flex-col bg-stone-50 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-b-[2rem] sm:rounded-b-[3rem] mb-0 md:mb-[70vh] min-h-screen">
+            <main className="relative z-10 flex flex-col bg-stone-50 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-b-[2rem] sm:rounded-b-[3rem] mb-0 md:mb-[550px] min-h-screen">
                 <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
                     <motion.div
                         key={currentPage}
