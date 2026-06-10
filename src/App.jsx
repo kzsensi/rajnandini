@@ -1767,8 +1767,8 @@ const GlobalNetwork = ({ setPage }) => {
                             <div className="w-px bg-slate-200 h-16 self-center mx-1 sm:mx-0"></div>
                             <div className="flex flex-col items-center sm:items-start text-center sm:text-left flex-1 min-w-[80px]">
                                 <Users className="w-6 sm:w-8 h-6 sm:h-8 text-[#B58D54] mb-2 sm:mb-3 stroke-[1.5]" />
-                                <span className="text-xl sm:text-3xl font-black text-slate-900 mb-1">500+</span>
-                                <span className="text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider">Satisfied Customers</span>
+                                <span className="text-xl sm:text-3xl font-black text-slate-900 mb-1">50 Lakh+</span>
+                                <span className="text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider">MTS Sold Successfully</span>
                             </div>
                         </div>
 
